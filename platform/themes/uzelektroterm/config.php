@@ -59,7 +59,6 @@ return [
             $theme->asset()->usePath()->add('bootstrap.min', 'css/bootstrap.min.css');
             $theme->asset()->usePath()->add('style', 'css/style.css');
 
-            $theme->asset()->container('footer')->usePath()->add('jquery', '//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js');
             $theme->asset()->container('footer')->usePath()->add('bootstrap.min', 'js/bootstrap.min.js');
             $theme->asset()->container('footer')->usePath()->add('slick.min', 'js/slick.min.js');
             $theme->asset()->container('footer')->usePath()->add('jquery.magnific-popup.min', 'js/jquery.magnific-popup.min.js');
