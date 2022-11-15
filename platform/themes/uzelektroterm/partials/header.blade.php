@@ -52,7 +52,13 @@
                     </div> <!-- .navbar-header -->
 
                     <div class="collapse navbar-collapse navbar-items" id="navbar-items">
-                        <ul class="nav navbar-nav navbar-right">
+                        {!!
+                         Menu::renderMenuLocation('main-menu', [
+                             'options' => ['class' => 'nav navbar-nav navbar-right'],
+                             'view'    => 'main-menu',
+                         ])
+                     !!}
+                        <ul class="nav navbar-nav navbar-right" style="display: none">
                             <li class="active dropdown menu-large">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
                                 <ul class="dropdown-menu megamenu row">
