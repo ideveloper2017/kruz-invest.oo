@@ -16,7 +16,6 @@
     </head>
     <body @if (BaseHelper::siteLanguageDirection() == 'rtl') dir="rtl" @endif class="home-01">
         {!! apply_filters(THEME_FRONT_BODY, null) !!}
-
         <header class="site-header">
             <div class="top-bar clearfix">
                 <div class="container">
@@ -48,9 +47,7 @@
                         </button>
 
                         <a class="navbar-brand" href="#"><img src="img/corporex-logo.png" alt="corporex logo"></a>
-
                     </div> <!-- .navbar-header -->
-
                     <div class="collapse navbar-collapse navbar-items" id="navbar-items">
                         {!!
                          Menu::renderMenuLocation('main-menu', [
@@ -284,7 +281,6 @@
                 </div> <!-- .container -->
             </nav> <!-- .navbar -->
         </header> <!-- .site-header -->
-
         <section class="hero-area">
             <div id="corporex-slider" class="corporex-slider carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">

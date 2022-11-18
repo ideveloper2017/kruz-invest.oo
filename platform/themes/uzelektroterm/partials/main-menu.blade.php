@@ -11,7 +11,7 @@
                         'menu'       => $menu,
                         'menu_nodes' => $row->child,
                         'view'       => 'main-menu',
-                        'options'    => ['class' => 'sub-menu'],
+                        'options'    => ['class' => 'dropdown-menu'],
                     ])
                 !!}
             @endif
