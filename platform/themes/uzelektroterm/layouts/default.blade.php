@@ -1,3 +1,4 @@
 {!! Theme::partial('header') !!}
- {!! Theme::content() !!}
+{!! Theme::partial('breadcrumbs') !!}
+{!! Theme::content() !!}
 {!! Theme::partial('footer') !!}

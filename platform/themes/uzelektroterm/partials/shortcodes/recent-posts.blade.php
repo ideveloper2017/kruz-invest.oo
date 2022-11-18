@@ -1,61 +1,69 @@
-<section class="section pt-50 pb-50">
+<section class="wide-tb-100">
     <div class="container">
         <div class="row">
-            <div class="col-lg-9">
-                <div class="page-content">
-                    <div class="post-group post-group--single">
-                        <div class="post-group__header">
-                            <h3 class="post-group__title">{!! clean($title) !!}</h3>
-                        </div>
-                        <div class="post-group__content">
-                            <div class="row">
-                                @foreach (get_latest_posts(7, [], ['slugable']) as $post)
-                                    @if ($loop->first)
-                                        <div class="col-md-6 col-sm-6 col-12">
-                                            <article class="post post__vertical post__vertical--single">
-                                                <div class="post__thumbnail">
-                                                    <img src="{{ RvMedia::getImageUrl($post->image, 'medium', false, RvMedia::getDefaultImage()) }}" alt="{{ $post->name }}"><a href="{{ $post->url }}" class="post__overlay"></a>
-                                                </div>
-                                                <div class="post__content-wrap">
-                                                    <header class="post__header">
-                                                        <h3 class="post__title"><a href="{{ $post->url }}">{{ $post->name }}</a></h3>
-                                                        <div class="post__meta"><span class="created__month">{{ $post->created_at->translatedFormat('M') }}</span><span class="created__date">{{ $post->created_at->translatedFormat('d') }}</span><span class="created__year">{{ $post->created_at->translatedFormat('Y') }}</span></div>
-                                                    </header>
-                                                    <div class="post__content">
-                                                        <p data-number-line="4">{{ $post->description }}</p>
-                                                    </div>
-                                                    <div class="post__footer"><a href="{{ $post->url }}" class="post__readmore">{{ __('Read more') }}</a></div>
-                                                </div>
-                                            </article>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-12">
-                                            @else
-                                                <article class="post post__horizontal post__horizontal--single mb-20 clearfix">
-                                                    <div class="post__thumbnail">
-                                                        <img src="{{ RvMedia::getImageUrl($post->image, 'medium', false, RvMedia::getDefaultImage()) }}" alt="{{ $post->name }}"><a href="{{ $post->url }}" class="post__overlay"></a>
-                                                    </div>
-                                                    <div class="post__content-wrap">
-                                                        <header class="post__header">
-                                                            <h3 class="post__title"><a href="{{ $post->url }}">{{ $post->name }}</a></h3>
-                                                            <div class="post__meta"><span class="post__created-at">{{ $post->created_at->translatedFormat('M d, Y') }}</span></div>
-                                                        </header>
-                                                    </div>
-                                                </article>
-                                            @endif
-                                            @if ($loop->last)
-                                        </div>
-                                    @endif
-                                @endforeach
+            <div class="col-12">
+                <div class="head-main">
+                    <h1>{!! clean($title) !!}</h1>
+                </div>
+            </div>
+            <!-- Blog Wrap -->
+            @foreach (get_latest_posts(6, [], ['slugable']) as $post)
+                <div class="col-sm-4">
+                    <div class="blog-wrap">
+                        <a href="{{ $post->url }}"><img src="{{ RvMedia::getImageUrl($post->image, 'medium', false, RvMedia::getDefaultImage()) }}" alt=""></a>
+                        <div class="inner-content">
+                            <div class="meta-box">
+                                 <span><i class="icofont icofont-calendar"></i>{{ $post->created_at->translatedFormat('d.F.Y') }}</span>
                             </div>
+                            <h4 class="h4-md mb-3"><a href="{{ $post->url }}">{{ $post->name }}</a></h4>
+                            <p>{{ mb_substr($post->description,0,175) }}</p>
+                            <a href="{{ $post->url }}" class="btn-theme bg-navy-blue">{{ trans('labels.readmore') }} <i class="icofont icofont-rounded-double-right"></i></a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="page-sidebar">
-                    {!! dynamic_sidebar('top_sidebar') !!}
+                <div class="col-md-4 col-sm-6 col-xs-12 news-colmun" style="display: none">
+                    <div class="single-item wow fadeInUp animated animated animated" style="visibility: visible; animation-name: fadeInUp;">
+                        <div class="img-box"><a href="{{ $post->url }}"><figure><img src="{{ RvMedia::getImageUrl($post->image, 'medium', false, RvMedia::getDefaultImage()) }}" alt=""></figure></a></div>
+                        <div class="news-content">
+                            <div class="date">{{ $post->created_at->translatedFormat('d') }}<div class="text">{{ $post->created_at->translatedFormat('M') }}</div></div>
+                            <ul class="meta">
+                                <li><i class="fa fa-user" aria-hidden="true"></i>Admin</li>
+                                <li><i class="fa fa-heart-o" aria-hidden="true"></i>350</li>
+                                <li><i class="fa fa-comments-o" aria-hidden="true"></i>30</li>
+                            </ul>
+                            <h4><a href="{{ $post->url }}">{{ $post->name }}</a></h4>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
+<section class="news-section sec-pad" style="display: none">
+    <div class="container">
+        <div class="news-title centered">
+            <div class="section-title"><h2>{!! clean($title) !!}</h2></div>
+            <div class="title-text"><p>Jamiyat yangiliklari</p></div>
+        </div>
+        <div class="row">
+            @foreach (get_latest_posts(6, [], ['slugable']) as $post)
+            <div class="col-md-4 col-sm-6 col-xs-12 news-colmun">
+                <div class="single-item wow fadeInUp animated animated animated" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="img-box"><a href="{{ $post->url }}"><figure><img src="{{ RvMedia::getImageUrl($post->image, 'medium', false, RvMedia::getDefaultImage()) }}" alt=""></figure></a></div>
+                    <div class="news-content">
+                        <div class="date">{{ $post->created_at->translatedFormat('d') }}<div class="text">{{ $post->created_at->translatedFormat('M') }}</div></div>
+                        <ul class="meta">
+                            <li><i class="fa fa-user" aria-hidden="true"></i>Admin</li>
+                            <li><i class="fa fa-heart-o" aria-hidden="true"></i>350</li>
+                            <li><i class="fa fa-comments-o" aria-hidden="true"></i>30</li>
+                        </ul>
+                        <h4><a href="{{ $post->url }}">{{ $post->name }}</a></h4>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+
+        </div>
+    </div>
+</section>
+

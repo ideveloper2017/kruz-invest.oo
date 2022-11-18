@@ -1,15 +1,405 @@
 <?php
-
+use Botble\Ads\Repositories\Interfaces\AdsInterface;
 use Botble\Base\Enums\BaseStatusEnum;
 use Botble\Blog\Repositories\Interfaces\CategoryInterface;
+use Botble\Counterup\Repositories\Interfaces\CounterupInterface;
+use Botble\PostCollection\Repositories\Interfaces\PostCollectionInterface;
 use Botble\Theme\Supports\ThemeSupport;
 
-app()->booted(function () {
 
+app()->booted(function () {
     ThemeSupport::registerGoogleMapsShortcode();
     ThemeSupport::registerYoutubeShortcode();
 
+    add_shortcode('sitemap',__('SiteMap'),__("Add Sitemap"),function ($shortcode){
+        return Theme::partial('shortcodes.sitemap', compact('shortcode'));
+    });
+    shortcode()->setAdminConfig('sitemap',function($attributes){
+        return Theme::partial('shortcodes.sitemap-admin-config',compact('attributes'));
+    });
+
     if (is_plugin_active('blog')) {
+
+        add_shortcode('posts-listing', __('Posts listing'), __('Add posts listing'), function ($shortcode) {
+            $limit = $shortcode->limit ? (int)$shortcode->limit : 12;
+            $layout = $shortcode->layout ?: 'default';
+            $posts = get_all_posts(true, $limit);
+
+            return Theme::partial('shortcodes.posts-listing', compact('posts', 'layout'));
+        });
+
+        shortcode()->setAdminConfig('posts-listing', function ($attributes) {
+            return Theme::partial('shortcodes.posts-listing-admin-config', compact('attributes'));
+        });
+
+        add_shortcode('trending-posts', __('Trending posts'), __('Trending posts'), function () {
+            return Theme::partial('shortcodes.trending-posts');
+        });
+
+        add_shortcode('posts-grid', __('Posts Grid'), __('Posts Grid'), function ($shortcode) {
+            $attributes = $shortcode->toArray();
+            $queryPosts = [
+                'categories'         => $attributes['categories'] ?? '',
+                'categories_exclude' => $attributes['categories_exclude'] ?? '',
+                'include'            => $attributes['include'] ?? '',
+                'exclude'            => $attributes['exclude'] ?? '',
+                'limit'              => $attributes['limit'] ? (int)$attributes['limit'] : 4,
+                'order_by'           => $attributes['order_by'] ?? 'updated_at',
+                'order'              => $attributes['order'] ?? 'desc',
+            ];
+            $title = $attributes['title'] ?? '';
+            $subtitle = $attributes['subtitle'] ?? '';
+            $style = $attributes['style'] ?? 2;
+
+            $posts = query_post($queryPosts);
+
+            return Theme::partial('shortcodes.posts-grid', compact('posts', 'title', 'subtitle', 'style'));
+        });
+
+        shortcode()->setAdminConfig('posts-grid', function ($attributes) {
+            return Theme::partial('shortcodes.posts-grid-admin-config', compact('attributes'));
+        });
+
+        add_shortcode('posts-slider', __('Posts slider'), __('Posts slider'), function ($shortcode) {
+            $queryPosts = [];
+
+            if ($shortcode->filter_by == 'posts-collection') {
+                $postCollection = app(PostCollectionInterface::class)
+                    ->findById($shortcode->posts_collection_id, [
+                        'posts' => function ($query) use ($shortcode) {
+                            return $query->limit(!empty($shortcode->limit) ? (int)$shortcode->limit : 6);
+                        },
+                        'posts.slugable',
+                    ]);
+
+                $posts = $postCollection->posts;
+            } else {
+                switch ($shortcode->filter_by) {
+                    case 'featured':
+                        $queryPosts = [
+                            'featured' => 1,
+                            'limit'    => $shortcode->limit ? (int)$shortcode->limit : 4,
+                        ];
+                        break;
+
+                    case 'recent':
+                        $queryPosts = [
+                            'limit' => $shortcode->limit ? (int)$shortcode->limit : 4,
+                        ];
+                        break;
+
+                    case 'ids':
+                        $queryPosts = [
+                            'include' => $shortcode->include,
+                        ];
+                        break;
+                }
+
+                $posts = query_post($queryPosts);
+            }
+
+            $title = $shortcode->title ?? '';
+            $description = $shortcode->description ?? '';
+            $style = $shortcode->style ?? 1;
+
+            return Theme::partial('shortcodes.posts-slider-style-' . $style, compact('posts', 'title', 'description'));
+        });
+
+        shortcode()->setAdminConfig('posts-slider', function ($attributes) {
+            $postsCollections = app(PostCollectionInterface::class)->all();
+
+            return Theme::partial('shortcodes.posts-slider-admin-config', compact('attributes', 'postsCollections'));
+        });
+
+        add_shortcode('popular-categories', __('Popular categories'), __('Popular categories'), function ($shortcode) {
+            $title = $shortcode->title;
+            $limit = (int)$shortcode->limit;
+
+            return Theme::partial('shortcodes.popular-categories', compact('title', 'limit'));
+        });
+
+        shortcode()->setAdminConfig('popular-categories', function ($attributes) {
+            return Theme::partial('shortcodes.popular-categories-admin-config', compact('attributes'));
+        });
+
+        add_shortcode('contact-form', __('Contact form'), __('Add contact form'), function ($shortcode) {
+            $title = $shortcode->title ?: '';
+
+            return Theme::partial('shortcodes.contact-form', compact('title'));
+        });
+
+        shortcode()->setAdminConfig('contact-form', function ($attributes) {
+            return Theme::partial('shortcodes.contact-form-admin-config', compact('attributes'));
+        });
+
+        //recent post
+        add_shortcode('recent-posts', __('Recent posts'), __('Add recent posts'), function ($shortcode) {
+            return Theme::partial('shortcodes.recent-posts', [
+                'shortcode' => $shortcode,
+            ]);
+        });
+
+        shortcode()->setAdminConfig('recent-posts', function ($attributes) {
+            return Theme::partial('shortcodes.recent-posts-admin-config', compact('attributes'));
+        });
+
+        //posts collection
+        add_shortcode('posts-collection', __('Posts Collection'), __('Add posts collection'), function ($shortcode) {
+            $postCollectionData = app(PostCollectionInterface::class)
+                ->findById($shortcode->posts_collection_id, [
+                    'posts' => function ($query) use ($shortcode) {
+                        return $query->limit(!empty($shortcode->limit) ? (int)$shortcode->limit : 4);
+                    },
+                    'posts.slugable',
+                ]);
+
+            return Theme::partial('shortcodes.posts-collection', [
+                'shortcode'          => $shortcode,
+                'postCollectionData' => $postCollectionData,
+            ]);
+        });
+
+        shortcode()->setAdminConfig('posts-collection', function ($attributes) {
+            $postsCollections = app(PostCollectionInterface::class)->all();
+
+            return Theme::partial('shortcodes.posts-collection-admin-config',
+                compact('attributes', 'postsCollections'));
+        });
+
+        //categories tab posts
+        add_shortcode('categories-tab-posts', __('Categories tab posts'), __('Add Categories tab posts'),
+            function ($shortcode) {
+                $postLimit = !empty($shortcode->limit) ? (int)$shortcode->limit : 5;
+                $categoryIds = explode(',', $shortcode->categories_ids);
+                $categoriesData = [];
+
+                foreach ($categoryIds as $categoryId) {
+                    $categoriesData[] = [
+                        'category' => get_category_by_id($categoryId),
+                        'posts'    => get_posts_by_category($categoryId, $postLimit),
+                    ];
+                }
+
+                return Theme::partial('shortcodes.categories-tab-posts', [
+                    'shortcode'      => $shortcode,
+                    'categoriesData' => $categoriesData,
+                ]);
+            });
+
+        shortcode()->setAdminConfig('categories-tab-posts', function ($attributes) {
+            $categories = get_categories();
+
+            return Theme::partial('shortcodes.categories-tab-posts-admin-config', compact('attributes', 'categories'));
+        });
+
+        //video posts
+        add_shortcode('videos-posts', __('Video posts'), __('Add video posts'), function ($shortcode) {
+            $posts = query_post([
+                'format_type' => 'video',
+                'limit'       => (int)($shortcode->limit ?? 7)
+            ]);
+
+            return Theme::partial('shortcodes.video-posts', [
+                'shortcode' => $shortcode,
+                'posts'     => $posts,
+            ]);
+        });
+
+        shortcode()->setAdminConfig('videos-posts', function ($attributes) {
+            return Theme::partial('shortcodes.video-posts-admin-config', compact('attributes'));
+        });
+
+        //most comments
+        add_shortcode('most-comments', __('Most comments'), __('Most comments'), function ($shortcode) {
+            return Theme::partial('shortcodes.most-comments', compact('shortcode'));
+        });
+
+        shortcode()->setAdminConfig('most-comments', function ($attributes) {
+            return Theme::partial('shortcodes.most-comments-admin-config', compact('attributes'));
+        });
+
+
+    }
+    add_shortcode('home-intro', __('Home page intro'), __('Home page intro'), function ($shortcode) {
+        return Theme::partial('shortcodes.home-intro', ['limit' => $shortcode->limit]);
+    });
+
+
+    if (is_plugin_active('contact')) {
+        add_shortcode('Contacts', __('Contacts'), __('Contacts'), function ($shortcode) {
+            return Theme::partial('shortcodes.contact', ['limit' => $shortcode->limit]);
+        });
+    }
+
+    if (is_plugin_active('tenders')) {
+        add_shortcode('Tenders', __('Tenders'), __('Tenders'), function ($shortcode) {
+            return Theme::partial('shortcodes.tenders', ['limit' => $shortcode->limit]);
+        });
+    }
+
+    if (is_plugin_active('services')) {
+        add_shortcode('Services', __('services'), __('services'), function ($shortcode) {
+            return Theme::partial('shortcodes.services', ['limit' => $shortcode->limit]);
+        });
+    }
+
+    if (is_plugin_active('faq')) {
+        add_shortcode('faqs', __('FAQs'), __('List of FAQs'), function ($shortcode) {
+
+            $params = [
+                'condition' => [
+                    'status' => BaseStatusEnum::PUBLISHED,
+                ],
+                'with'      => [
+                    'faqs' => function ($query) {
+                        $query->where('status', BaseStatusEnum::PUBLISHED);
+                    },
+                ],
+                'order_by'  => [
+                    'faq_categories.order'      => 'ASC',
+                    'faq_categories.created_at' => 'DESC',
+                ],
+            ];
+
+            if ($shortcode->category_id) {
+                $params['condition']['id'] = $shortcode->category_id;
+            }
+
+            $categories = app(FaqCategoryInterface::class)->advancedGet($params);
+
+            return Theme::partial('shortcodes.faqs', compact('categories'));
+        });
+
+        shortcode()->setAdminConfig('faqs', function ($attributes) {
+            $categories = app(FaqCategoryInterface::class)->pluck('name', 'id', ['status' => BaseStatusEnum::PUBLISHED]);
+
+            return Theme::partial('shortcodes.faqs-admin-config', compact('attributes', 'categories'));
+        });
+    }
+    if (is_plugin_active('counterup')){
+        add_shortcode('counterup',"CounterUp","CounterUp",function ($shortcode){
+            $counters = app(CounterupInterface::class)->getModel()
+                ->where('status', BaseStatusEnum::PUBLISHED)
+                ->get();
+
+            return Theme::partial('shortcodes.counterup',compact('counters'));
+        });
+
+        shortcode()->setAdminConfig('counterup',function($attributes, $content) {
+            return Theme::partial('shortcodes.counterup-admin-config', compact('attributes', 'content'));
+        });
+    }
+
+    if (is_plugin_active('gallery')) {
+        add_shortcode('all-galleries', __('All Galleries'), __('All Galleries'), function ($shortcode) {
+            return Theme::partial('shortcodes.all-galleries', ['limit' => $shortcode->limit]);
+        });
+
+        shortcode()->setAdminConfig('all-galleries', function ($attributes, $content) {
+            return Theme::partial('shortcodes.all-galleries-admin-config', compact('attributes', 'content'));
+        });
+    }
+
+    if (is_plugin_active('simple-slider')) {
+        add_filter(SIMPLE_SLIDER_VIEW_TEMPLATE, function () {
+            return Theme::getThemeNamespace() . '::partials.shortcodes.sliders.main';
+        }, 120);
+    }
+
+
+
+    if (is_plugin_active('simple-slider')) {
+        add_filter(SHORTCODE_REGISTER_CONTENT_IN_ADMIN, function ($data, $key, $attributes) {
+            if (!in_array($key, ['simple-slider'])) {
+                return $data;
+            }
+
+            if (is_plugin_active('ads')) {
+                $ads = app(AdsInterface::class)->getModel()
+                    ->where('status', BaseStatusEnum::PUBLISHED)
+                    ->notExpired()
+                    ->get();
+                $data .= Theme::partial('shortcodes.ads.config-in-admin', compact('ads', 'attributes') + ['total' => 2]);
+            }
+
+            if (is_plugin_active('newsletter')) {
+                $data .= Theme::partial('shortcodes.sliders.newsletter-form-option', compact('attributes'));
+            }
+
+            return $data . Theme::partial('shortcodes.sliders.config-in-admin', compact('ads', 'attributes'));
+        }, 50, 3);
+    }
+
+
+    if (is_plugin_active('blog')) {
+
+        add_shortcode('blog-categories-posts', __('Blog categories posts'), __('Blog categories posts'),
+            function ($shortCode) {
+                $category = app(CategoryInterface::class)
+                    ->findById($shortCode->category_id, ['slugable', 'posts' => function ($query) {
+                        $query->latest()->with(['slugable', 'categories', 'categories.slugable'])->limit(4);
+                    }]);
+
+                if (!$category) {
+                    return null;
+                }
+                $title=$shortCode->title;
+                return Theme::partial('shortcodes.blog-categories-posts', compact('title','category'));
+            });
+
+        shortcode()->setAdminConfig('blog-categories-posts', function ($attributes) {
+            $categories = app(CategoryInterface::class)->allBy(['status' => BaseStatusEnum::PUBLISHED]);
+
+            return Theme::partial('shortcodes.blog-categories-posts-admin-config', compact('attributes','categories'));
+        });
+
+        add_shortcode('categories-with-posts', __('Categories with Posts'), __('Categories with Posts'), function ($shortCode) {
+
+            $attributes = $shortCode->toArray();
+
+            $categories = collect([]);
+
+            for ($i = 1; $i <= 3; $i++) {
+                if (!Arr::has($attributes, 'category_id_' . $i)) {
+                    continue;
+                }
+
+                $category = app(CategoryInterface::class)->advancedGet([
+                    'condition' => ['categories.id' => Arr::get($attributes, 'category_id_' . $i)],
+                    'take' => 1,
+                    'with'      => [
+                        'slugable',
+                        'posts' => function ($query) {
+                            return $query
+                                ->latest()
+                                ->with(['slugable'])
+                                ->limit(3);
+                        },
+                    ],
+                ]);
+
+                if ($category) {
+                    $categories[] = $category;
+                }
+            }
+
+            return Theme::partial('shortcodes.categories-with-posts', compact('categories'));
+        });
+
+        shortcode()->setAdminConfig('categories-with-posts', function () {
+            $categories = app(CategoryInterface::class)->allBy(['status' => BaseStatusEnum::PUBLISHED]);
+
+            return Theme::partial('shortcodes.categories-with-posts-admin-config', compact('categories'));
+        });
+
+        add_shortcode('featured-posts-slider', __('Featured posts slider'), __('Featured posts slider'), function () {
+            return Theme::partial('shortcodes.featured-posts-slider');
+        });
+
+        add_shortcode('featured-posts-slider-full', __('Featured posts slider full'), __('Featured posts slider full'), function () {
+            return Theme::partial('shortcodes.featured-posts-slider-full');
+        });
+
         add_shortcode('featured-posts', __('Featured posts'), __('Featured posts'), function () {
             return Theme::partial('shortcodes.featured-posts');
         });
@@ -21,6 +411,8 @@ app()->booted(function () {
         shortcode()->setAdminConfig('recent-posts', function ($attributes, $content) {
             return Theme::partial('shortcodes.recent-posts-admin-config', compact('attributes', 'content'));
         });
+
+
 
         add_shortcode('featured-categories-posts', __('Featured categories posts'), __('Featured categories posts'),
             function ($shortcode) {
@@ -87,7 +479,144 @@ app()->booted(function () {
             return Theme::partial('shortcodes.featured-categories-posts-admin-config',
                 compact('attributes', 'categories'));
         });
+
+        add_shortcode('blog-list', __('Blog list'), __('Add blog posts list'), function ($shortCode) {
+            $limit = $shortCode->limit ? $shortCode->limit : 12;
+
+            //  $posts = get_all_posts(true, $limit);
+
+            $category = app(CategoryInterface::class)
+                ->findById($shortCode->category_id, ['slugable', 'posts' => function ($query) use($limit){
+                    $query->latest()->with(['slugable', 'categories', 'categories.slugable'])->limit($limit);
+                }]);
+
+            if (!$category) {
+                return null;
+            }
+            $title=$shortCode->title;
+            return Theme::partial('shortcodes.blog-list', compact('title','category'));
+
+            // return Theme::partial('shortcodes.blog-list', compact('posts'));
+        });
+
+        shortcode()->setAdminConfig('blog-list', function($attributes){
+            $categories = app(CategoryInterface::class)->allBy(['status' => BaseStatusEnum::PUBLISHED]);
+            return Theme::partial('shortcodes.blog-list-admin-config',compact('attributes','categories'));
+        });
+
+        add_shortcode('blog-big', __('Blog big'), __('Add blog posts big'), function ($shortCode) {
+            $limit = $shortCode->limit ? $shortCode->limit : 12;
+
+            $posts = get_all_posts(true, $limit);
+
+            return Theme::partial('shortcodes.blog-big', compact('posts'));
+        });
+
+        shortcode()->setAdminConfig('blog-big', Theme::partial('shortcodes.blog-big-admin-config'));
+
+
+        //posts collection
+        add_shortcode('posts-collection', __('Posts Collection'), __('Add posts collection'), function ($shortcode) {
+            $postCollectionData = app(PostCollectionInterface::class)
+                ->findById($shortcode->posts_collection_id, [
+                    'posts' => function ($query) use ($shortcode) {
+                        return $query->limit(!empty($shortcode->limit) ? (int)$shortcode->limit : 4);
+                    },
+                    'posts.slugable',
+                ]);
+
+            return Theme::partial('shortcodes.posts-collection', [
+                'shortcode'          => $shortcode,
+                'postCollectionData' => $postCollectionData,
+            ]);
+        });
+
+        shortcode()->setAdminConfig('posts-collection', function ($attributes) {
+            $postsCollections = app(PostCollectionInterface::class)->all();
+
+            return Theme::partial('shortcodes.posts-collection-admin-config',
+                compact('attributes', 'postsCollections'));
+        });
+
+        //categories tab posts
+        add_shortcode('categories-tab-posts', __('Categories tab posts'), __('Add Categories tab posts'),
+            function ($shortcode) {
+                $postLimit = !empty($shortcode->limit) ? (int)$shortcode->limit : 5;
+                $categoryIds = explode(',', $shortcode->categories_ids);
+                $categoriesData = [];
+                foreach ($categoryIds as $categoryId) {
+                    $category = get_category_by_id($categoryId);
+                    if (!empty($category)) {
+                        $categoriesData[] = [
+                            'category' => $category,
+                            'posts'    => get_posts_by_category($categoryId, $postLimit),
+                        ];
+                    }
+                }
+
+                return Theme::partial('shortcodes.categories-tab-posts', [
+                    'shortcode'      => $shortcode,
+                    'categoriesData' => $categoriesData,
+                ]);
+            });
+
+        shortcode()->setAdminConfig('categories-tab-posts', function ($attributes) {
+            $categories = get_categories();
+
+            return Theme::partial('shortcodes.categories-tab-posts-admin-config', compact('attributes', 'categories'));
+        });
+
+
+        //video posts
+        add_shortcode('videos-posts', __('Video posts'), __('Add video posts'), function ($shortcode) {
+            $posts = query_post([
+                'format_type' => 'video',
+                'limit'       => (int)($shortcode->limit ?? 7)
+            ]);
+
+            if (!empty($shortcode->toArray()['is_slider'])) {
+                return Theme::partial('shortcodes.video-posts-slider', [
+                    'shortcode' => $shortcode,
+                    'posts'     => $posts,
+                ]);
+            } else {
+                return Theme::partial('shortcodes.video-posts', [
+                    'shortcode' => $shortcode,
+                    'posts'     => $posts,
+                ]);
+            }
+        });
+
+        shortcode()->setAdminConfig('videos-posts', function ($attributes) {
+            return Theme::partial('shortcodes.video-posts-admin-config', compact('attributes'));
+        });
     }
+
+    if (is_plugin_active('newsletter')) {
+        add_shortcode('about-banner', __('About banner'), __('About banner'), function ($shortCode) {
+            return Theme::partial('shortcodes.about-banner', [
+                'title'           => $shortCode->title,
+                'subtitle'        => $shortCode->subtitle,
+                'textMuted'       => $shortCode->text_muted,
+                'newsletterTitle' => $shortCode->newsletter_title,
+                'image'           => $shortCode->image,
+            ]);
+        });
+
+        shortcode()->setAdminConfig('about-banner', Theme::partial('shortcodes.about-banner-admin-config'));
+    }
+
+    add_shortcode('google-map', __('Google map'), __('Custom map'), function ($shortCode) {
+        return Theme::partial('shortcodes.google-map', ['address' => $shortCode->content]);
+    });
+
+    shortcode()->setAdminConfig('google-map', Theme::partial('shortcodes.google-map-admin-config'));
+
+    add_shortcode('youtube-video', __('Youtube video'), __('Add youtube video'), function ($shortCode) {
+        return Theme::partial('shortcodes.youtube-video', ['url' => $shortCode->content]);
+    });
+
+    shortcode()->setAdminConfig('youtube-video', Theme::partial('shortcodes.youtube-video-admin-config'));
 
     if (is_plugin_active('gallery')) {
         add_shortcode('all-galleries', __('All Galleries'), __('All Galleries'), function ($shortcode) {
@@ -96,6 +625,35 @@ app()->booted(function () {
 
         shortcode()->setAdminConfig('all-galleries', function ($attributes, $content) {
             return Theme::partial('shortcodes.all-galleries-admin-config', compact('attributes', 'content'));
+        });
+    }
+
+    if (is_plugin_active('ads')) {
+        add_shortcode('theme-ads', __('Theme ads'), __('Theme ads'), function ($shortCode) {
+            $ads = [];
+            $attributes = $shortCode->toArray();
+
+            for ($i = 1; $i < 5; $i++) {
+                if (isset($attributes['key_' . $i])) {
+                    $ad = AdsManager::displayAds($attributes['key_' . $i]);
+                    if ($ad) {
+                        $ads[] = $ad;
+                    }
+                }
+            }
+
+            $ads = array_filter($ads);
+
+            return Theme::partial('shortcodes.theme-ads', compact('ads'));
+        });
+
+        shortcode()->setAdminConfig('theme-ads', function () {
+            $ads = app(AdsInterface::class)->getModel()
+                ->where('status', BaseStatusEnum::PUBLISHED)
+                ->notExpired()
+                ->get();
+
+            return Theme::partial('shortcodes.theme-ads-admin-config', compact('ads'));
         });
     }
 });
