@@ -39,6 +39,7 @@
                 </div> <!-- .btn-container -->
             </div> <!-- .col-md-8 -->
             <div class="col-md-4 sidebar">
+                {!! dynamic_sidebar('primary_sidebar') !!}
                 <div class="widget widget-search">
                     <h3 class="widget-title">Search</h3>
                     <form>
