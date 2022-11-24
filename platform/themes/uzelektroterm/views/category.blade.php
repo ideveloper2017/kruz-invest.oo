@@ -23,7 +23,7 @@
 {{--                                quis nostrud exercitation ullamco laboris nisi ut aliquip pagla hauar tore ...--}}
 {{--                            </p>--}}
 {{--                        </div> <!-- .entry-content -->--}}
-                        <a class="btn btn-main" href="#">Read More</a>
+{{--                        <a class="btn btn-main" href="#">Read More</a>--}}
                     </div> <!-- .post-content -->
                 </div> <!-- .post-wrapper split-post -->
                     @endforeach
