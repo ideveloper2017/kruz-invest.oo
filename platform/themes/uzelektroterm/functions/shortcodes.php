@@ -306,7 +306,19 @@ app()->booted(function () {
         }, 120);
     }
 
+    if (is_plugin_active('counterup')){
+        add_shortcode('counterup',"CounterUp","CounterUp",function ($shortcode){
+            $counters = app(CounterupInterface::class)->getModel()
+                ->where('status', BaseStatusEnum::PUBLISHED)
+                ->get();
 
+            return Theme::partial('shortcodes.counterup',compact('counters'));
+        });
+
+        shortcode()->setAdminConfig('counterup',function($attributes, $content) {
+            return Theme::partial('shortcodes.counterup-admin-config', compact('attributes', 'content'));
+        });
+    }
 
     if (is_plugin_active('simple-slider')) {
         add_filter(SHORTCODE_REGISTER_CONTENT_IN_ADMIN, function ($data, $key, $attributes) {
