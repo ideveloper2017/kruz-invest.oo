@@ -3,7 +3,7 @@
         <div class="page-title-banner">
             <div class="container">
                 <div class="content-wrapper">
-                    <h2>Latest Blog</h2>
+                    <h2>{{ Theme::get('section-name') }}</h2>
                     <u  @foreach (Theme::breadcrumb()->getCrumbs() as $i => $crumb)
                         @if ($i != (count(Theme::breadcrumb()->getCrumbs()) - 1))
                             <li><a href="{{ $crumb['url'] }}">{!! $crumb['label'] !!}</a></li>
