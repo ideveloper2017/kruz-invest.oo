@@ -1,9 +1,7 @@
 <div class="col-lg-3 col-md-6 footer-about">
     <h3 class="widget-title">About Us</h3>
     <p>
-        Lorem ipsum dolor sit amet, consec tetur adipisi cing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis exer aliquip.
+        {!! clean($config['about']) !!}
     </p>
     <ul class="list-inline footer-social">
         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
