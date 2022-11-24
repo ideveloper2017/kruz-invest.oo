@@ -1,21 +1,17 @@
-<div class="contact-info">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="icon-box"><i class="fa fa-map-marker"></i></div>
-                <p>22, Bardeshi, Savar, Dhaka</p>
-            </div> <!-- .col-md-4 -->
-            <div class="col-md-4">
-                <div class="icon-box"><i class="fa fa-phone"></i></div>
-                <a href="#">+8801679 252595</a>
-            </div> <!-- .col-md-4 -->
-            <div class="col-md-4">
-                <div class="icon-box"><i class="fa fa-envelope"></i></div>
-                <a href="#">hello@corporex.com</a>
-            </div> <!-- .col-md-4 -->
-        </div> <!-- .row -->
-    </div> <!-- .container -->
-</div>
+<div class="col-lg-3 col-md-6 footer-about">
+    <h3 class="widget-title">About Us</h3>
+    <p>
+        Lorem ipsum dolor sit amet, consec tetur adipisi cing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis exer aliquip.
+    </p>
+    <ul class="list-inline footer-social">
+        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+    </ul> <!-- .footer-social -->
+</div> <!-- col-lg-3 col-md-6 -->
 <div class="col" style="display: none">
     <div class="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0  wow animate__animated animate__fadeInUp"  data-wow-delay="0">
         @if (theme_option('logo'))

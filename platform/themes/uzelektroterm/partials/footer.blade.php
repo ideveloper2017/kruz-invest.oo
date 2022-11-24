@@ -18,23 +18,11 @@
         </div> <!-- .container -->
     </div>
     <div class="footer-blocks">
-        {!! dynamic_sidebar('footer_sidebar_1') !!}
+
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 footer-about">
-                    <h3 class="widget-title">About Us</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consec tetur adipisi cing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis exer aliquip.
-                    </p>
-                    <ul class="list-inline footer-social">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    </ul> <!-- .footer-social -->
-                </div> <!-- col-lg-3 col-md-6 -->
+                {!! dynamic_sidebar('footer_sidebar_1') !!}
+
                 <div class="col-lg-3 col-md-6 widget widget-gallery">
                     <h3 class="widget-title">Gallery</h3>
 
