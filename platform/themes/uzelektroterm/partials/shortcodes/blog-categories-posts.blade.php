@@ -19,17 +19,17 @@
                             <li>{{ $post->created_at->translatedFormat('d.F.Y') }}</li>
 
                         </ul>
-                        <h3><a href="{{ $post->url }}">{{$rows.' '. $post->name }}</a></h3>
-                        <a class="btn-open" href="{{ $post->url }}">Read More</a>
+                        <h3><a href="{{ $post->url }}">{{$post->name }}</a></h3>
+{{--                        <a class="btn-open" href="{{ $post->url }}">Read More</a>--}}
                     </div>
                 </div>
                 @if($rows==2) <?php $rows =1; echo '</div>';?>  @else <?php $rows++;?>@endif
                 @endforeach
             @endif
         </div> <!-- .row -->
-        <div class="btn-container">
-            <a class="btn btn-narrow" href="#">View All</a>
-        </div>
+{{--        <div class="btn-container">--}}
+{{--            <a class="btn btn-narrow" href="#">View All</a>--}}
+{{--        </div>--}}
 
     </div> <!-- .container -->
 </section>
