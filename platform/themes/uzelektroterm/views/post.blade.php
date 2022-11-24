@@ -28,25 +28,6 @@
                             {!! clean($post->content) !!}
                         </div> <!-- .entry-content -->
                     </div> <!-- .post-content -->
-                    <div class="post-bottom clearfix">
-                        <div class="share-block">
-                            <h4>Share</h4>
-                            <ul class="social-share social-icons">
-                                <li class="facebook-link"><a class="icon-box" href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li class="twitter-link"><a class="icon-box" href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li class="google-plus-link"><a class="icon-box" href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li class="linkedin-link"><a class="icon-box" href="#"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
-                        </div> <!-- .share-block -->
-                        <div class="tag-block">
-                            <h4>Tags</h4>
-                            <ul class="tag-list">
-                                <li><a href="#">Web Design</a></li>
-                                <li><a href="#">Development</a></li>
-                                <li><a href="#">Facebook</a></li>
-                            </ul>
-                        </div> <!-- .tag-block -->
-                    </div> <!-- .post-bottom -->
                 </div> <!-- .post-wrapper post-overlay -->
 
             </div> <!-- .col-md-8 -->
