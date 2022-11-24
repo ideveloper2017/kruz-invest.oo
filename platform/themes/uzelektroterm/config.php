@@ -65,6 +65,8 @@ return [
             $theme->asset()->container('footer')->usePath()->add('jquery.magnific-popup.min', 'js/jquery.magnific-popup.min.js');
             $theme->asset()->container('footer')->usePath()->add('mixitup.min', 'js/mixitup.min.js');
             $theme->asset()->container('footer')->usePath()->add('jquery.easypiechart.min', 'js/jquery.easypiechart.min.js');
+            $theme->asset()->container('footer')->usePath()->add('jquery.counterup.min', '/js/jquery.counterup.min.js');
+
             $theme->asset()->container('footer')->usePath()->add('script', 'js/script.js');
 
             if (function_exists('shortcode')) {
