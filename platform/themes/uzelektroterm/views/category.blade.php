@@ -13,11 +13,9 @@
                     </div> <!-- .image-wrapper -->
                     <div class="post-content">
                         <ul class="post-meta">
-                            <li>August 03, 2017</li>
-                            <li><a href="#">Web Design</a></li>
-                            <li><a href="#">33 Comments</a></li>
+                            <li>{{ $post->created_at->translatedFormat('d.M.Y') }}</li>
                         </ul>
-                        <h3 class="entry-title"><a href="{{ $post->url }}">{{ $post->author->name }}</a></h3>
+                        <h3 class="entry-title"><a href="{{ $post->url }}">{{ $post->name }}</a></h3>
 {{--                        <div class="entry-content">--}}
 {{--                            <p>--}}
 {{--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod--}}
