@@ -6,13 +6,11 @@
                     <h2>Latest Blog</h2>
                     <u  @foreach (Theme::breadcrumb()->getCrumbs() as $i => $crumb)
                         @if ($i != (count(Theme::breadcrumb()->getCrumbs()) - 1))
-                            <li><a href="#"><i class="icofont icofont-home"></i></a></li>
                             <li><a href="{{ $crumb['url'] }}">{!! $crumb['label'] !!}</a></li>
                         @else
                             <li><a href="{{ $crumb['url'] }}">{!! $crumb['label'] !!}</a></li>
-
                             @endif
-                            @endforeach
+                        @endforeach
                     </ul>
                 </div> <!-- .content-wrapper -->
             </div> <!-- .container -->
