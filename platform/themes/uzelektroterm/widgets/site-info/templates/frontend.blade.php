@@ -4,10 +4,11 @@
         {!! clean($config['about']) !!}
     </p>
     <ul class="list-inline footer-social">
-        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        @for ($i = 1; $i <= 5; $i++)
+            @if (theme_option('social_' . $i . '_url') && theme_option('social_' . $i . '_name'))
+                <li><a style="background: {{ theme_option('social_' . $i . '_color') }}" href="{{ theme_option('social_' . $i . '_url') }}" target="_blank" title="{{ theme_option('social_' . $i . '_name') }}"><i class="elegant-icon {{ theme_option('social_' . $i . '_icon') }}"></i></a></li>
+            @endif
+        @endfor
     </ul> <!-- .footer-social -->
 </div> <!-- col-lg-3 col-md-6 -->
 <div class="col" style="display: none">
