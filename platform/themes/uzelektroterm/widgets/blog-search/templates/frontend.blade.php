@@ -1,11 +1,12 @@
 @if (is_plugin_active('blog'))
-    <div class="single-widget widget-search">
-        <h5 class="widget-title">Search</h5>
-        <form action="#" class="widget-search-form">
-            <input type="text" placeholder="Search...">
-            <button type="submit"><i class="fa fa-search"></i></button>
+    <div class="widget widget-search" >
+        <h3 class="widget-title">{{ $config['name'] }}</h3>
+        <form  method="get" action="{{ route('public.search') }}">
+            <input class="form-control" type="search" name="q" value="{{ request()->query('q') }}" placeholder="{{ __('Search...') }}">
+            <button class="submit-btn" type="submit"><i class="fa fa-search"></i></button>
         </form>
-    </div>
+    </div> <!-- .widget widget-search -->
+
 
     <div class="sidebar-primary col-lg-12 col-md-6" style="display: none">
         <div class="widgets-sidebar">

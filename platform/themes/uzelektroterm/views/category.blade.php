@@ -40,40 +40,8 @@
             </div> <!-- .col-md-8 -->
             <div class="col-md-4 sidebar">
                 {!! dynamic_sidebar('primary_sidebar') !!}
-                <div class="widget widget-search">
-                    <h3 class="widget-title">Search</h3>
-                    <form>
-                        <input class="form-control" type="search" name="search-box" id="search-box" placeholder="Search ..">
-                        <button class="submit-btn" type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                </div> <!-- .widget widget-search -->
-                <div class="widget widget-recent-posts">
-                    <h3 class="widget-title">Recent Posts</h3>
-                    <ul class="img-list">
-                        <li class="clearfix">
-                            <img class="img-responsive" src="http://via.placeholder.com/84x84" alt="post thumbnail">
-                            <div class="content-wrapper">
-                                <h4><a href="#">Lorem ipsum dolor sit amet cone ctetur adaborum</a></h4>
-                                <p>Oct 18, 2017</p>
-                            </div> <!-- .content-wrapper -->
-                        </li>
-                        <li class="clearfix">
-                            <img class="img-responsive" src="http://via.placeholder.com/84x84" alt="post thumbnail">
-                            <div class="content-wrapper">
-                                <h4><a href="#">Lorem ipsum dolor sit amet cone ctetur adaborum</a></h4>
-                                <p>Oct 18, 2017</p>
-                            </div> <!-- .content-wrapper -->
-                        </li>
-                        <li class="clearfix">
-                            <img class="img-responsive" src="http://via.placeholder.com/84x84" alt="post thumbnail">
-                            <div class="content-wrapper">
-                                <h4><a href="#">Lorem ipsum dolor sit amet cone ctetur adaborum</a></h4>
-                                <p>Oct 18, 2017</p>
-                            </div> <!-- .content-wrapper -->
-                        </li>
-                    </ul>
-                </div><!-- .widget widget-recent-posts -->
-                <div class="widget widget-category">
+
+                    <div class="widget widget-category">
                     <h3 class="widget-title">Post Category</h3>
                     <ul class="link-list">
                         <li><a href="#">Website Design</a></li>
