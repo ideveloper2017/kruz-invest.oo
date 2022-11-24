@@ -9,9 +9,6 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins:400,700%7CRoboto:400,400i,700" rel="stylesheet">
 {{--        <link href="https://fonts.googleapis.com/css?family={{ urlencode(theme_option('primary_font', 'Roboto')) }}" rel="stylesheet" type="text/css">--}}
         <!-- CSS Library-->
-
-
-
         {!! Theme::header() !!}
     </head>
     <body @if (BaseHelper::siteLanguageDirection() == 'rtl') dir="rtl" @endif class="home-01">
@@ -20,8 +17,8 @@
             <div class="top-bar clearfix">
                 <div class="container">
                     <ul class="list-inline pull-left quick-contact">
-                        <li><a href="#"><i class="fa fa-phone"></i> <span>+88 01679 252595</span></a></li>
-                        <li><a href="#"><i class="fa fa-envelope-o"></i> <span>hello@corporex.com</span></a></li>
+                        <li><a href="tel://{!! theme_option('phone') !!}"><i class="fa fa-phone"></i> <span>{!! theme_option('phone') !!}</span></a></li>
+                        <li><a href="mailto://{!! theme_option('email') !!}"><i class="fa fa-envelope-o"></i> <span>{!! theme_option('email') !!}</span></a></li>
                     </ul> <!-- .quick-contact -->
 
                     <ul class="list-inline pull-right top-bar-social">
