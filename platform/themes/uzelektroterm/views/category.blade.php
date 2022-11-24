@@ -1,5 +1,226 @@
 @php Theme::set('section-name', $category->name) @endphp
-<div class="tm-section blogs-area bg-white tm-padding-section">
+<section class="blog-section blog-post-02 page-content">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-8 blog-posts">
+
+                @if ($posts->count() > 0)
+                    @foreach ($posts as $post)
+                <div class="post-wrapper post-split clearfix">
+                    <div class="image-wrapper">
+                        <img class="img-responsive" src="{{ RvMedia::getImageUrl($post->image, 'medium', false, RvMedia::getDefaultImage()) }}" alt="blog image">
+                    </div> <!-- .image-wrapper -->
+                    <div class="post-content">
+                        <ul class="post-meta">
+                            <li>August 03, 2017</li>
+                            <li><a href="#">Web Design</a></li>
+                            <li><a href="#">33 Comments</a></li>
+                        </ul>
+                        <h3 class="entry-title"><a href="{{ $post->url }}">{{ $post->author->name }}</a></h3>
+{{--                        <div class="entry-content">--}}
+{{--                            <p>--}}
+{{--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod--}}
+{{--                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,--}}
+{{--                                quis nostrud exercitation ullamco laboris nisi ut aliquip pagla hauar tore ...--}}
+{{--                            </p>--}}
+{{--                        </div> <!-- .entry-content -->--}}
+                        <a class="btn btn-main" href="#">Read More</a>
+                    </div> <!-- .post-content -->
+                </div> <!-- .post-wrapper split-post -->
+                    @endforeach
+                @else
+                    <div class="alert alert-warning">
+                        <p>{{ __('There is no data to display!') }}</p>
+                    </div>
+                @endif
+
+
+                <div class="pagination-block text-center">
+                    {!! $posts->links() !!}
+                </div> <!-- .btn-container -->
+            </div> <!-- .col-md-8 -->
+            <div class="col-md-4 sidebar">
+                <div class="widget widget-search">
+                    <h3 class="widget-title">Search</h3>
+                    <form>
+                        <input class="form-control" type="search" name="search-box" id="search-box" placeholder="Search ..">
+                        <button class="submit-btn" type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div> <!-- .widget widget-search -->
+                <div class="widget widget-recent-posts">
+                    <h3 class="widget-title">Recent Posts</h3>
+                    <ul class="img-list">
+                        <li class="clearfix">
+                            <img class="img-responsive" src="http://via.placeholder.com/84x84" alt="post thumbnail">
+                            <div class="content-wrapper">
+                                <h4><a href="#">Lorem ipsum dolor sit amet cone ctetur adaborum</a></h4>
+                                <p>Oct 18, 2017</p>
+                            </div> <!-- .content-wrapper -->
+                        </li>
+                        <li class="clearfix">
+                            <img class="img-responsive" src="http://via.placeholder.com/84x84" alt="post thumbnail">
+                            <div class="content-wrapper">
+                                <h4><a href="#">Lorem ipsum dolor sit amet cone ctetur adaborum</a></h4>
+                                <p>Oct 18, 2017</p>
+                            </div> <!-- .content-wrapper -->
+                        </li>
+                        <li class="clearfix">
+                            <img class="img-responsive" src="http://via.placeholder.com/84x84" alt="post thumbnail">
+                            <div class="content-wrapper">
+                                <h4><a href="#">Lorem ipsum dolor sit amet cone ctetur adaborum</a></h4>
+                                <p>Oct 18, 2017</p>
+                            </div> <!-- .content-wrapper -->
+                        </li>
+                    </ul>
+                </div><!-- .widget widget-recent-posts -->
+                <div class="widget widget-category">
+                    <h3 class="widget-title">Post Category</h3>
+                    <ul class="link-list">
+                        <li><a href="#">Website Design</a></li>
+                        <li><a href="#">Corporate &amp; Finance</a></li>
+                        <li><a href="#">Business Strategy</a></li>
+                        <li><a href="#">Market Research</a></li>
+                        <li><a href="#">Mobile Application</a></li>
+                        <li><a href="#">Social Sceince</a></li>
+                        <li><a href="#">Financial Planning</a></li>
+                        <li><a href="#">Online Marketing</a></li>
+                        <li><a href="#">User Interface</a></li>
+                    </ul>
+                </div> <!-- .widget widget-post-category -->
+
+                <div class="widget widget-recent-comments">
+                    <h3 class="widget-title">Recent Comments</h3>
+                    <ul class="img-list circle-img">
+                        <li class="clearfix">
+                            <img class="img-responsive" src="http://via.placeholder.com/72x72" alt="comment author">
+                            <div class="content-wrapper">
+                                <h5>Titumir Alam</h5> on <a href="#">Kobita tumi shopno chariny hoye khobor nio na</a>
+                                <p>- 2 hours ago</p>
+                            </div><!-- .content-wrapper -->
+                        </li>
+                        <li class="clearfix">
+                            <img class="img-responsive" src="http://via.placeholder.com/72x72" alt="comment author">
+                            <div class="content-wrapper">
+                                <h5>Kasem Bin Bakar</h5> on <a href="#">Einisha chor amay vebona shukher mohona</a>
+                                <p>- 2 hours ago</p>
+                            </div><!-- .content-wrapper -->
+                        </li>
+                        <li class="clearfix">
+                            <img class="img-responsive" src="http://via.placeholder.com/72x72" alt="comment author">
+                            <div class="content-wrapper">
+                                <h5>Jesef Abedin</h5> on <a href="#">Dekhbe amader valobasa hoye gese</a>
+                                <p>- 2 hours ago</p>
+                            </div><!-- .content-wrapper -->
+                        </li>
+                    </ul>
+                </div> <!-- .widget widget-recent-comments -->
+
+                <div class="widget widget-social-links">
+                    <h3 class="widget-title">Follow us</h3>
+                    <ul>
+                        <li class="facebook-link"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li class="twitter-link"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li class="google-plus-link"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="youtube-link"><a href="#"><i class="fa fa-youtube"></i></a></li>
+                        <li class="linkedin-link"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div> <!-- .widget widget-social-links -->
+
+                <div class="widget widget-tags">
+                    <h3 class="widget-title">Popular Tags</h3>
+                    <ul>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Google</a></li>
+                        <li><a href="#">Marketing</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Youtube</a></li>
+                        <li><a href="#">Social Media</a></li>
+                        <li><a href="#">Pink Panther</a></li>
+                        <li><a href="#">Marmar</a></li>
+                        <li><a href="#">Template</a></li>
+                        <li><a href="#">Bootstrap</a></li>
+                        <li><a href="#">Laravel</a></li>
+                    </ul>
+                </div> <!-- .widget widget-tags -->
+
+
+                <div class="widget widget-testimonial">
+                    <h3 class="widget-title">Testimonial Slider</h3>
+                    <div class="testimonial-wrapper">
+                        <div class="item">
+                            <blockquote>
+                                Cras at mauris iaculis orci ultricies rutrum ac eu mi. Etiam euismod tortor neque, et dignissim metus blandit non. Maecenas viverra ante sapien, vitae ule, elit sit amet faucibus iaculis, eros nisl tristique purus vitae purus. Mauris at dolor ut tellus ultricies nibh feugiat tortor euismod varius.
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="image-wrapper"><img class="img-responsive" src="http://via.placeholder.com/48x48" alt="quote author"></div>
+                                <h4>Peter Parker<small>Web Designer</small></h4>
+                            </div> <!-- .testimonial-author -->
+                        </div> <!-- .item -->
+                        <div class="item">
+                            <blockquote>
+                                Cras at mauris iaculis orci ultricies rutrum ac eu mi. Etiam euismod tortor neque, et dignissim metus blandit non. Maecenas viverra ante sapien, vitae ule, elit sit amet faucibus iaculis, eros nisl tristique purus vitae purus. Mauris at dolor ut tellus ultricies nibh feugiat tortor euismod varius.
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="image-wrapper"><img class="img-responsive" src="http://via.placeholder.com/48x48" alt="quote author"></div>
+                                <h4>Peter Parker<small>Web Designer</small></h4>
+                            </div> <!-- .testimonial-author -->
+                        </div> <!-- .item -->
+                        <div class="item">
+                            <blockquote>
+                                Cras at mauris iaculis orci ultricies rutrum ac eu mi. Etiam euismod tortor neque, et dignissim metus blandit non. Maecenas viverra ante sapien, vitae ule, elit sit amet faucibus iaculis, eros nisl tristique purus vitae purus. Mauris at dolor ut tellus ultricies nibh feugiat tortor euismod varius.
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="image-wrapper"><img class="img-responsive" src="http://via.placeholder.com/48x48" alt="quote author"></div>
+                                <h4>Peter Parker<small>Web Designer</small></h4>
+                            </div> <!-- .testimonial-author -->
+                        </div> <!-- .item -->
+                    </div> <!-- .testimonial-wrapper -->
+
+                </div> <!-- .widget widget-testimonial -->
+
+
+                <div class="widget widget-tweets">
+                    <h3 class="widget-title">Recent Tweets</h3>
+                    <ul>
+                        <li class="clearfix">
+                            <div class="twitter-icon"><i class="fa fa-twitter"></i> </div>
+                            <div class="tweet-wrapper">
+                                <p>
+                                    <a class="twitter-id" href="">@Corporex</a>Lorem ipsum dolor sit amet adipisicing elit, sed do eiusmod
+                                    tempor inci <a href="#">https://bit.ly/7sdSdfds</a>
+                                </p>
+                                <span>-2 hours ago</span>
+                            </div> <!-- .tweet-wrapper -->
+                        </li>
+                        <li class="clearfix">
+                            <div class="twitter-icon"><i class="fa fa-twitter"></i> </div>
+                            <div class="tweet-wrapper">
+                                <p>
+                                    <a class="twitter-id" href="">@Corporex</a>Lorem ipsum dolor sit amet adipisicing elit, sed do eiusmod
+                                    tempor inci <a href="#">https://bit.ly/7sdSdfds</a>
+                                </p>
+                                <span>-2 hours ago</span>
+                            </div> <!-- .tweet-wrapper -->
+                        </li>
+                        <li class="clearfix">
+                            <div class="twitter-icon"><i class="fa fa-twitter"></i> </div>
+                            <div class="tweet-wrapper">
+                                <p>
+                                    <a class="twitter-id" href="">@Corporex</a>Lorem ipsum dolor sit amet adipisicing elit, sed do eiusmod
+                                    tempor inci <a href="#">https://bit.ly/7sdSdfds</a>
+                                </p>
+                                <span>-2 hours ago</span>
+                            </div> <!-- .tweet-wrapper -->
+                        </li>
+                    </ul>
+                </div> <!-- .widget widget-tweets -->
+
+            </div> <!-- .col-md-4 -->
+        </div> <!-- .row -->
+    </div> <!-- .container -->
+</section> <!-- .portfolio-section -->
+<div class="tm-section blogs-area bg-white tm-padding-section" style="display: none">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-12">
@@ -49,62 +270,4 @@
         </div>
     </div>
 </div>
-<section class="our-blog news-section blog-page sidebar-page-container" style="display: none">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-sm-12 col-xs-12 content-side">
-                <div class="blog-content">
-                    <div class="row">
-                        @if ($posts->count() > 0)
-                            @foreach ($posts as $post)
-                        <div class="col-md-6 col-sm-6 col-xs-12 news-colmun">
-                            <div class="single-item wow fadeInUp animated animated animated" style="visibility: visible; animation-name: fadeInUp;">
-                                <div class="img-box"><a href="{{ $post->url }}"><figure><img src="{{ RvMedia::getImageUrl($post->image, 'medium', false, RvMedia::getDefaultImage()) }}" alt=""></figure></a></div>
-                                <div class="news-content">
-                                    <div class="date">{{ $post->created_at->translatedFormat('d') }}<div class="text">{{ $post->created_at->translatedFormat('M') }}</div></div>
-                                    <ul class="meta">
-                                        @if ($post->author->username)
-                                            <li><i class="fa fa-user" aria-hidden="true"></i>{{ $post->author->name }}</li>
-                                        @endif
-                                        <li><i class="fa fa-folder" aria-hidden="true"></i><a href="{{ $category->url }}">{{ $category->name }}</a></li>
-                                        <li><i class="fa fa-eye" aria-hidden="true"></i>{{ $post->views }}</li>
-                                    </ul>
-                                    <h4><a href="{{ $post->url }}">{{ $post->name }}</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                       @endforeach
 
-                    </div>
-
-                    <ul class="link-btn">
-                        {!! $posts->links() !!}
-
-{{--                        <li><a href="#"><i class="fa fa-angle-left"></i></a></li>--}}
-{{--                        <li><a href="#" class="active">1</a></li>--}}
-{{--                        <li><a href="#">2</a></li>--}}
-{{--                        <li><a href="#">3</a></li>--}}
-{{--                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>--}}
-                    </ul>
-                    @else
-                        <div class="alert alert-warning">
-                            <p>{{ __('There is no data to display!') }}</p>
-                        </div>
-                    @endif
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-8 col-xs-12 sidebar-side">
-                <div class="sidebar">
-                    <div class="sidebar-search sidebar-widget">
-                        <div class="search-box">
-                            <input type="text" placeholder="Search...">
-                            <button><i class="fa fa-search"></i></button>
-                        </div>
-                    </div>
-
-                    {!! Theme::partial('sidebar') !!}
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
