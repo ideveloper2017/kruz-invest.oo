@@ -41,20 +41,7 @@
             <div class="col-md-4 sidebar">
                 {!! dynamic_sidebar('primary_sidebar') !!}
 
-                    <div class="widget widget-category">
-                    <h3 class="widget-title">Post Category</h3>
-                    <ul class="link-list">
-                        <li><a href="#">Website Design</a></li>
-                        <li><a href="#">Corporate &amp; Finance</a></li>
-                        <li><a href="#">Business Strategy</a></li>
-                        <li><a href="#">Market Research</a></li>
-                        <li><a href="#">Mobile Application</a></li>
-                        <li><a href="#">Social Sceince</a></li>
-                        <li><a href="#">Financial Planning</a></li>
-                        <li><a href="#">Online Marketing</a></li>
-                        <li><a href="#">User Interface</a></li>
-                    </ul>
-                </div> <!-- .widget widget-post-category -->
+
 
                 <div class="widget widget-recent-comments">
                     <h3 class="widget-title">Recent Comments</h3>
