@@ -3,7 +3,7 @@
         <div class="row">
             @foreach($counters as $counter)
                 <div class="col-md-3 col-sm-6">
-                    <i class="pe-7s-display1"></i>
+                    <i class="{{ clean($counter->icon) }}"></i>
                     <h3><span class="counter">{{ $counter->number }}</span>{{ clean($counter->name) }}</h3>
                 </div>
            @endforeach
