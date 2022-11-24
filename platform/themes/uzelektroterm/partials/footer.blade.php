@@ -22,19 +22,6 @@
         <div class="container">
             <div class="row">
                 {!! dynamic_sidebar('footer_sidebar_1') !!}
-
-                <div class="col-lg-3 col-md-6 widget widget-gallery">
-                    <h3 class="widget-title">Gallery</h3>
-
-                    <ul class="list-inline photo-gallery footer-gallery clearfix">
-                        <li><a class="gallery-img" href="http://via.placeholder.com/570x570"><img class="img-responsive" src="http://via.placeholder.com/570x570" alt="gallery photo"></a></li>
-                        <li><a class="gallery-img" href="http://via.placeholder.com/570x570"><img class="img-responsive" src="http://via.placeholder.com/570x570" alt="gallery photo"></a></li>
-                        <li><a class="gallery-img" href="http://via.placeholder.com/570x570"><img class="img-responsive" src="http://via.placeholder.com/570x570" alt="gallery photo"></a></li>
-                        <li><a class="gallery-img" href="http://via.placeholder.com/570x570"><img class="img-responsive" src="http://via.placeholder.com/570x570" alt="gallery photo"></a></li>
-                        <li><a class="gallery-img" href="http://via.placeholder.com/570x570"><img class="img-responsive" src="http://via.placeholder.com/570x570" alt="gallery photo"></a></li>
-                        <li><a class="gallery-img" href="http://via.placeholder.com/570x570"><img class="img-responsive" src="http://via.placeholder.com/570x570" alt="gallery photo"></a></li>
-                    </ul> <!-- .footer-social -->
-                </div> <!-- col-lg-3 col-md-6 -->
                 <div class="col-lg-3 col-md-6 recent-post-widget">
                     <h3 class="widget-title">Recent posts</h3>
                     <ul class="post-list">
