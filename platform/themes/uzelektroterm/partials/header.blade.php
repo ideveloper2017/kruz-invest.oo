@@ -42,8 +42,7 @@
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fa fa-bars"></i>
                         </button>
-
-                        <a class="navbar-brand" href="#"><img src="img/corporex-logo.png" alt="corporex logo"></a>
+{{--                        <a class="navbar-brand" href="#"><img src="img/corporex-logo.png" alt="corporex logo"></a>--}}
                     </div> <!-- .navbar-header -->
                     <div class="collapse navbar-collapse navbar-items" id="navbar-items">
                         {!!
