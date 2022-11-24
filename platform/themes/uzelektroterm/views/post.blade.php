@@ -14,9 +14,11 @@
         <div class="row">
             <div class="col-md-8 single-post">
                 <div class="post-wrapper post-standard">
+                    @if ($post->image)
                     <div class="image-wrapper">
                         <img class="img-responsive" src="{!! RvMedia::getImageUrl($post->image, 'large', false, RvMedia::getDefaultImage()) !!}" alt="blog image 01">
                     </div> <!-- .image-wrapper -->
+                    @endif
                     <div class="post-content">
                         <h2 class="entry-title">{{ $post->name }}</h2>
                         <ul class="post-meta">
