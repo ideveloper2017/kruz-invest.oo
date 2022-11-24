@@ -43,33 +43,6 @@
 
 
 
-                <div class="widget widget-recent-comments">
-                    <h3 class="widget-title">Recent Comments</h3>
-                    <ul class="img-list circle-img">
-                        <li class="clearfix">
-                            <img class="img-responsive" src="http://via.placeholder.com/72x72" alt="comment author">
-                            <div class="content-wrapper">
-                                <h5>Titumir Alam</h5> on <a href="#">Kobita tumi shopno chariny hoye khobor nio na</a>
-                                <p>- 2 hours ago</p>
-                            </div><!-- .content-wrapper -->
-                        </li>
-                        <li class="clearfix">
-                            <img class="img-responsive" src="http://via.placeholder.com/72x72" alt="comment author">
-                            <div class="content-wrapper">
-                                <h5>Kasem Bin Bakar</h5> on <a href="#">Einisha chor amay vebona shukher mohona</a>
-                                <p>- 2 hours ago</p>
-                            </div><!-- .content-wrapper -->
-                        </li>
-                        <li class="clearfix">
-                            <img class="img-responsive" src="http://via.placeholder.com/72x72" alt="comment author">
-                            <div class="content-wrapper">
-                                <h5>Jesef Abedin</h5> on <a href="#">Dekhbe amader valobasa hoye gese</a>
-                                <p>- 2 hours ago</p>
-                            </div><!-- .content-wrapper -->
-                        </li>
-                    </ul>
-                </div> <!-- .widget widget-recent-comments -->
-
                 <div class="widget widget-social-links">
                     <h3 class="widget-title">Follow us</h3>
                     <ul>
@@ -80,58 +53,6 @@
                         <li class="linkedin-link"><a href="#"><i class="fa fa-linkedin"></i></a></li>
                     </ul>
                 </div> <!-- .widget widget-social-links -->
-
-                <div class="widget widget-tags">
-                    <h3 class="widget-title">Popular Tags</h3>
-                    <ul>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Google</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Youtube</a></li>
-                        <li><a href="#">Social Media</a></li>
-                        <li><a href="#">Pink Panther</a></li>
-                        <li><a href="#">Marmar</a></li>
-                        <li><a href="#">Template</a></li>
-                        <li><a href="#">Bootstrap</a></li>
-                        <li><a href="#">Laravel</a></li>
-                    </ul>
-                </div> <!-- .widget widget-tags -->
-
-
-                <div class="widget widget-testimonial">
-                    <h3 class="widget-title">Testimonial Slider</h3>
-                    <div class="testimonial-wrapper">
-                        <div class="item">
-                            <blockquote>
-                                Cras at mauris iaculis orci ultricies rutrum ac eu mi. Etiam euismod tortor neque, et dignissim metus blandit non. Maecenas viverra ante sapien, vitae ule, elit sit amet faucibus iaculis, eros nisl tristique purus vitae purus. Mauris at dolor ut tellus ultricies nibh feugiat tortor euismod varius.
-                            </blockquote>
-                            <div class="testimonial-author">
-                                <div class="image-wrapper"><img class="img-responsive" src="http://via.placeholder.com/48x48" alt="quote author"></div>
-                                <h4>Peter Parker<small>Web Designer</small></h4>
-                            </div> <!-- .testimonial-author -->
-                        </div> <!-- .item -->
-                        <div class="item">
-                            <blockquote>
-                                Cras at mauris iaculis orci ultricies rutrum ac eu mi. Etiam euismod tortor neque, et dignissim metus blandit non. Maecenas viverra ante sapien, vitae ule, elit sit amet faucibus iaculis, eros nisl tristique purus vitae purus. Mauris at dolor ut tellus ultricies nibh feugiat tortor euismod varius.
-                            </blockquote>
-                            <div class="testimonial-author">
-                                <div class="image-wrapper"><img class="img-responsive" src="http://via.placeholder.com/48x48" alt="quote author"></div>
-                                <h4>Peter Parker<small>Web Designer</small></h4>
-                            </div> <!-- .testimonial-author -->
-                        </div> <!-- .item -->
-                        <div class="item">
-                            <blockquote>
-                                Cras at mauris iaculis orci ultricies rutrum ac eu mi. Etiam euismod tortor neque, et dignissim metus blandit non. Maecenas viverra ante sapien, vitae ule, elit sit amet faucibus iaculis, eros nisl tristique purus vitae purus. Mauris at dolor ut tellus ultricies nibh feugiat tortor euismod varius.
-                            </blockquote>
-                            <div class="testimonial-author">
-                                <div class="image-wrapper"><img class="img-responsive" src="http://via.placeholder.com/48x48" alt="quote author"></div>
-                                <h4>Peter Parker<small>Web Designer</small></h4>
-                            </div> <!-- .testimonial-author -->
-                        </div> <!-- .item -->
-                    </div> <!-- .testimonial-wrapper -->
-
-                </div> <!-- .widget widget-testimonial -->
 
 
                 <div class="widget widget-tweets">
