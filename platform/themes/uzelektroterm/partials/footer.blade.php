@@ -4,20 +4,21 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="icon-box"><i class="fa fa-map-marker"></i></div>
-                    <p>22, Bardeshi, Savar, Dhaka</p>
+                    <p> {!! theme_option('address') !!}</p>
                 </div> <!-- .col-md-4 -->
                 <div class="col-md-4">
                     <div class="icon-box"><i class="fa fa-phone"></i></div>
-                    <a href="#">+8801679 252595</a>
+                    <a href="#">{!! theme_option('phone') !!}</a>
                 </div> <!-- .col-md-4 -->
                 <div class="col-md-4">
                     <div class="icon-box"><i class="fa fa-envelope"></i></div>
-                    <a href="#">hello@corporex.com</a>
+                    <a href="#">{!! theme_option('email') !!}</a>
                 </div> <!-- .col-md-4 -->
             </div> <!-- .row -->
         </div> <!-- .container -->
-    </div> <!-- .cntact-info -->
+    </div>
     <div class="footer-blocks">
+        {!! dynamic_sidebar('footer_sidebar_1') !!}
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 footer-about">
@@ -86,7 +87,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <p>All rights reserved &copy; 2018 <strong>Storm &amp; Rain</strong></p>
+                    <p>{!! clean(theme_option('copyright')) !!}</p>
                 </div> <!-- .col-md-6 -->
                 <div class="col-md-6">
                     <ul class="bottom-links">
