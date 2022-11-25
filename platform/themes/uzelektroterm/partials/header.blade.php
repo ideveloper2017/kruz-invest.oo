@@ -22,7 +22,11 @@
                     </ul> <!-- .quick-contact -->
 
                     <ul class="list-inline pull-right top-bar-social">
-                        {!! apply_filters('language-switcher') !!}
+                        @if (is_plugin_active('language'))
+
+                                {!! Theme::partial('language-switcher', ['color' => $color ?? '']) !!}
+
+                        @endif
 
                     </ul> <!-- .top-bar-menu -->
 
