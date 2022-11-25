@@ -1,6 +1,6 @@
 @php Theme::set('section-name', $category->name) @endphp
 
-            <div class="col-md-12 blog-posts">
+
 
                 @if ($posts->count() > 0)
                     @foreach ($posts as $post)
@@ -34,7 +34,7 @@
                 <div class="pagination-block text-center">
                     {!! $posts->links() !!}
                 </div> <!-- .btn-container -->
-            </div> <!-- .col-md-8 -->
+
 
 <div class="tm-section blogs-area bg-white tm-padding-section" style="display: none">
     <div class="container">
