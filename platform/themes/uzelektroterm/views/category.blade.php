@@ -38,9 +38,7 @@
                     {!! $posts->links() !!}
                 </div> <!-- .btn-container -->
             </div> <!-- .col-md-8 -->
-            <div class="col-md-4 sidebar">
-                {!! dynamic_sidebar('primary_sidebar') !!}
-            </div> <!-- .col-md-4 -->
+
         </div> <!-- .row -->
     </div> <!-- .container -->
 </section> <!-- .portfolio-section -->
