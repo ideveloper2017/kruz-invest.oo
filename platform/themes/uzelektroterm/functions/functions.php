@@ -7,6 +7,7 @@ register_page_template([
     'homepage2'      => __('Homepage 2'),
     'no-breadcrumbs' => __('No Breadcrumbs'),
     'right-sidebar'  => __('Right sidebar'),
+    'no-sidebar.blade'  => __('No sidebar'),
 ]);
 
 register_sidebar([
