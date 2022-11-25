@@ -1,10 +1,4 @@
-@if (is_plugin_active('simple-slider') && count($sliders) > 0 &&
-    $sliders->loadMissing('metadata') && $slider->loadMissing('metadata'))
-    @php
-        $style = $slider->getMetaData('simple_slider_style', true);
-        echo $style;
-    @endphp
-    @if ($style == 'style-3')
+
 
 <section class="hero-area">
     <div id="corporex-slider" class="corporex-slider corporex-slider-02 carousel slide" data-ride="carousel">
