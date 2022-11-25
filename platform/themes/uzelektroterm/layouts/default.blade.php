@@ -1,7 +1,6 @@
 {!! Theme::partial('header') !!}
 {!! Theme::partial('breadcrumbs') !!}
-<div id="body-content">
-    <div class="sidebar-overflow">
+<div class="blog-section blog-post-06 page-content">
         <div class="container">
             <div class="row pad-top">
                 <div class="col-md-12 col-lg-8">
@@ -16,5 +15,5 @@
             </div>
         </div>
     </div>
-</div>
+
 {!! Theme::partial('footer') !!}
