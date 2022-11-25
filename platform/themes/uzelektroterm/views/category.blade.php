@@ -1,9 +1,6 @@
 @php Theme::set('section-name', $category->name) @endphp
-<section class="blog-section blog-post-02 page-content">
-    <div class="container">
 
-        <div class="row">
-            <div class="col-md-8 blog-posts">
+            <div class="col-md-12 blog-posts">
 
                 @if ($posts->count() > 0)
                     @foreach ($posts as $post)
@@ -38,12 +35,7 @@
                     {!! $posts->links() !!}
                 </div> <!-- .btn-container -->
             </div> <!-- .col-md-8 -->
-            <div class="col-md-4 sidebar">
-                {!! dynamic_sidebar('primary_sidebar') !!}
-            </div> <!-- .col-md-4 -->
-        </div> <!-- .row -->
-    </div> <!-- .container -->
-</section> <!-- .portfolio-section -->
+
 <div class="tm-section blogs-area bg-white tm-padding-section" style="display: none">
     <div class="container">
         <div class="row">
