@@ -22,10 +22,8 @@
                     </ul> <!-- .quick-contact -->
 
                     <ul class="list-inline pull-right top-bar-social">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        {!! apply_filters('language_switcher') !!}
+
                     </ul> <!-- .top-bar-menu -->
 
                     <ul class="list-inline pull-right top-bar-menu">
