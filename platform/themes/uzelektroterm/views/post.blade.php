@@ -9,9 +9,7 @@
     }
 @endphp
 
-<section class="blog-section page-content">
-    <div class="container">
-        <div class="row">
+
             <div class="col-md-8 single-post">
                 <div class="post-wrapper post-standard">
                     @if ($post->image)
@@ -31,12 +29,7 @@
                 </div> <!-- .post-wrapper post-overlay -->
 
             </div> <!-- .col-md-8 -->
-            <div class="col-md-4 sidebar">
-                {!! dynamic_sidebar('primary_sidebar') !!}
-            </div>
-        </div> <!-- .row -->
-    </div> <!-- .container -->
-</section>
+
 
 <section id="body-content" class="blog-section blog-post-01 page-content" style="display: none">
 
