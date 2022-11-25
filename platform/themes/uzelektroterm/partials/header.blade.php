@@ -22,7 +22,7 @@
                     </ul> <!-- .quick-contact -->
 
                     <ul class="list-inline pull-right top-bar-social">
-                        {!! apply_filters('language_switcher') !!}
+                        {!! apply_filters('language-switcher') !!}
 
                     </ul> <!-- .top-bar-menu -->
 
