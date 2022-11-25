@@ -23,18 +23,14 @@
 
                     <ul class="list-inline pull-right top-bar-social">
                         @if (is_plugin_active('language'))
-
                                 {!! Theme::partial('language-switcher', ['color' => $color ?? '']) !!}
-
                         @endif
-
                     </ul> <!-- .top-bar-menu -->
-
-                    <ul class="list-inline pull-right top-bar-menu">
-                        <li><a href="#">Welcome</a></li>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Sitemap</a></li>
-                    </ul> <!-- .top-bar-menu -->
+{{--                    <ul class="list-inline pull-right top-bar-menu">--}}
+{{--                        <li><a href="#">Welcome</a></li>--}}
+{{--                        <li><a href="#">Login</a></li>--}}
+{{--                        <li><a href="#">Sitemap</a></li>--}}
+{{--                    </ul> <!-- .top-bar-menu -->--}}
                 </div> <!-- .container -->
             </div> <!-- .top-bar -->
             <nav class="navbar corporex-navbar navbar-01">
