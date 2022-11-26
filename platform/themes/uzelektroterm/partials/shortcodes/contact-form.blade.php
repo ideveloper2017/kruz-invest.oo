@@ -22,7 +22,7 @@
         <div class="contact-form-block">
             <div class="row">
                 <div class="col-md-7 form-block">
-                    <h2>Say Hello</h2>
+
                     <div class="form-message">
                         <p></p>
                     </div> <!-- .form-message -->
@@ -67,7 +67,7 @@
                 <div class="col-md-5 map-block">
                     <h3>Location</h3>
                     <div class="map-box" id="map-box">
-
+                        [google-map]Namangan[/google-map]
                     </div> <!-- .map-box -->
                 </div> <!-- .col-md-5 -->
             </div> <!-- .row -->
