@@ -320,6 +320,16 @@ app()->booted(function () {
         });
     }
 
+    add_shortcode('contact-form', __('Contact form'), __('Add contact form'), function ($shortcode) {
+        $title = $shortcode->title ?: '';
+
+        return Theme::partial('shortcodes.contact-form', compact('title'));
+    });
+
+    shortcode()->setAdminConfig('contact-form', function ($attributes) {
+        return Theme::partial('shortcodes.contact-form-admin-config', compact('attributes'));
+    });
+
     if (is_plugin_active('simple-slider')) {
         add_filter(SHORTCODE_REGISTER_CONTENT_IN_ADMIN, function ($data, $key, $attributes) {
             if (!in_array($key, ['simple-slider'])) {
