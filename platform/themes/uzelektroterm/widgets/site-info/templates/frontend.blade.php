@@ -1,5 +1,5 @@
 <div class="col-lg-3 col-md-6 footer-about">
-    <h3 class="widget-title">About Us</h3>
+    <h3 class="widget-title"> {!! clean($config['name']) !!}</h3>
     <p>
         {!! clean($config['about']) !!}
     </p>
