@@ -65,10 +65,9 @@
                     {!! Form::close() !!}
                 </div> <!-- .col-md-7 -->
                 <div class="col-md-5 map-block">
-                    <h3>Location</h3>
-                    <div class="map-box" id="map-box">
+
                         [google-map]Namangan[/google-map]
-                    </div> <!-- .map-box -->
+
                 </div> <!-- .col-md-5 -->
             </div> <!-- .row -->
         </div> <!-- .contact-form -->
