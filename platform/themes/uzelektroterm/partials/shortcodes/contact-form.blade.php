@@ -4,12 +4,12 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="icon-box"><i class="fa fa-map-marker"></i></div>
-                    <h3>{{ ___("Address") }}</h3>
+                    <h3>{{ __("Address") }}</h3>
                     <p>{!! theme_option('address') !!}</p>
                 </div> <!-- .col-md-4 -->
                 <div class="col-md-4">
                     <div class="icon-box"><i class="fa fa-phone"></i></div>
-                    <h3>{{ ___("Phone") }}</h3>
+                    <h3>{{ __("Phone") }}</h3>
                     <a href="#"> {!! theme_option('phone') !!}</a>
                 </div> <!-- .col-md-4 -->
                 <div class="col-md-4">
