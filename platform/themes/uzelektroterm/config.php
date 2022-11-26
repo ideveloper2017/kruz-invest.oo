@@ -57,8 +57,8 @@ return [
             $theme->asset()->usePath()->add('slick-theme', 'css/slick-theme.css');
             $theme->asset()->usePath()->add('magnific-popup', 'css/magnific-popup.css');
             $theme->asset()->usePath()->add('bootstrap.min', 'css/bootstrap.min.css');
-            $theme->asset()->usePath()->add('style', 'css/style.css');
             $theme->asset()->usePath()->add('bvi.min', 'css/bvi.min.css');
+            $theme->asset()->usePath()->add('style', 'css/style.css');
             $theme->asset()->container('footer')->add('jquery', '//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js');
             $theme->asset()->container('footer')->usePath()->add('bootstrap.min', 'js/bootstrap.min.js');
             $theme->asset()->container('footer')->usePath()->add('slick.min', 'js/slick.min.js');
