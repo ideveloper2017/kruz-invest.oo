@@ -4,18 +4,18 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="icon-box"><i class="fa fa-map-marker"></i></div>
-                    <h3>Address</h3>
-                    <p>20, Bardeshi, Amin Bazar <br> Savar, Dhaka</p>
+                    <h3>{{ ___("Address") }}</h3>
+                    <p>{!! theme_option('address') !!}</p>
                 </div> <!-- .col-md-4 -->
                 <div class="col-md-4">
                     <div class="icon-box"><i class="fa fa-phone"></i></div>
-                    <h3>Phone</h3>
-                    <a href="#">+8801679252595</a>
+                    <h3>{{ ___("Phone") }}</h3>
+                    <a href="#"> {!! theme_option('phone') !!}</a>
                 </div> <!-- .col-md-4 -->
                 <div class="col-md-4">
                     <div class="icon-box"><i class="fa fa-envelope-o"></i></div>
                     <h3>Email</h3>
-                    <a href="#">hello@corporex.com</a>
+                    <a href="#">{!! theme_option('email') !!}</a>
                 </div> <!-- .col-md-4 -->
             </div> <!-- .row -->
         </div> <!-- .contact-options -->
