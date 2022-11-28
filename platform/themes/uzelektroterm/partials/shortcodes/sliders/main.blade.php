@@ -8,7 +8,7 @@
 
         <div class="carousel-inner" role="listbox">
             @foreach($sliders as $slider)
-            <div class="item caption-left @if ($loop->first()) active @endif">
+            <div class="item caption-left @if ($loop->first) active @endif">
                 <img class="slider-bg img-responsive" src="{{ RvMedia::getImageUrl($slider->image, null, false, RvMedia::getDefaultImage()) }}" alt="slider image 01">
                 <div class="container">
 
