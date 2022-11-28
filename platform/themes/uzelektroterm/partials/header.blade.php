@@ -75,7 +75,7 @@
 
                     <ul class="list-inline pull-right top-bar-social">
                         <li><a href="#" class="bvi-open"><i class="fa fa-eye"></i></a></li>
-                        <li><a href="#"><i class="fa fa-mobile"></i></a></li>
+                        <li><a href="#" class="is_mobile"><i class="fa fa-mobile"></i></a></li>
                         <li><a href="#"><i class="fa fa-flag"></i></a></li>
                         <li><a href="#"><i class="fa fa-sitemap"></i></a></li>
                     </ul>
