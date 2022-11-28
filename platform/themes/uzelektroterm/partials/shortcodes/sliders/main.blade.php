@@ -7,8 +7,9 @@
         </ol> <!-- .carousel-indicators -->
 
         <div class="carousel-inner" role="listbox">
-            <div class="item caption-left active">
-                <img class="slider-bg img-responsive" src="http://via.placeholder.com/1920x720" alt="slider image 01">
+            @foreach($sliders as $slider)
+            <div class="item caption-left @if ($loop->first()) active @endif">
+                <img class="slider-bg img-responsive" src="{{ RvMedia::getImageUrl($slider->image, null, false, RvMedia::getDefaultImage()) }}" alt="slider image 01">
                 <div class="container">
 
                     <div class="carousel-caption">
@@ -21,20 +22,8 @@
                     </div> <!-- .carousel-caption -->
                 </div> <!-- .container -->
             </div> <!-- .item -->
-            <div class="item caption-right">
-                <img class="slider-bg img-responsive" src="http://via.placeholder.com/1920x720" alt="slider image 02">
-                <div class="container">
+            @endforeach
 
-                    <div class="carousel-caption">
-                        <h1 class="h1-extra"><span>corporex Theme</span>Discover the Excellence</h1>
-                        <p class="lead">
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur.
-                        </p>
-                        <a class="btn btn-main" href="#">learn more</a>
-                    </div> <!-- .carousel-caption -->
-                </div> <!-- .container -->
-            </div> <!-- .item -->
         </div> <!-- .carousel-inner -->
 
         <!-- Controls -->
