@@ -41,13 +41,14 @@
                         </button>
 
 
-                        <ul class="list-inline pull-right header-social">
-                            @for ($i = 1; $i <= 5; $i++)
-                                @if (theme_option('social_' . $i . '_url') && theme_option('social_' . $i . '_name'))
-                                    <li><a style="background: {{ theme_option('social_' . $i . '_color') }}" href="{{ theme_option('social_' . $i . '_url') }}" target="_blank" title="{{ theme_option('social_' . $i . '_name') }}"><i class="elegant-icon {{ theme_option('social_' . $i . '_icon') }}"></i></a></li>
-                                @endif
-                            @endfor
-                        </ul> <!-- .top-bar-menu -->
+{{--                        <ul class="list-inline pull-right header-social">--}}
+{{--                            @for ($i = 1; $i <= 5; $i++)--}}
+{{--                                @if (theme_option('social_' . $i . '_url') && theme_option('social_' . $i . '_name'))--}}
+{{--                                    <li><a style="background: {{ theme_option('social_' . $i . '_color') }}" href="{{ theme_option('social_' . $i . '_url') }}" target="_blank" title="{{ theme_option('social_' . $i . '_name') }}"><i class="elegant-icon {{ theme_option('social_' . $i . '_icon') }}"></i></a></li>--}}
+{{--                                @endif--}}
+{{--                            @endfor--}}
+{{--                        </ul> <!-- .top-bar-menu -->--}}
+                        <a class="navbar-brand" href="#"><img src="img/corporex-logo.png" alt="corporex logo"></a>
                         <div class="single-widget widget-search">
 
                             <form action="#" class="widget-search-form">
@@ -55,7 +56,7 @@
                                 <button type="submit"><i class="fa fa-search"></i></button>
                             </form>
                         </div>
-                        <a class="navbar-brand" href="#"><img src="img/corporex-logo.png" alt="corporex logo"></a>
+
                     </div> <!-- .container -->
                 </div> <!-- .navbar-header -->
 
