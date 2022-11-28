@@ -4,7 +4,8 @@
             <div class="container">
                 <div class="content-wrapper">
                     <h2>{{ Theme::get('section-name') }}</h2>
-                    <ul  @foreach (Theme::breadcrumb()->getCrumbs() as $i => $crumb)
+                    <ul class="bread-crumb">
+                        @foreach (Theme::breadcrumb()->getCrumbs() as $i => $crumb)
                         @if ($i != (count(Theme::breadcrumb()->getCrumbs()) - 1))
                             <li><a href="{{ $crumb['url'] }}">{!! $crumb['label'] !!}</a></li>
                         @else
