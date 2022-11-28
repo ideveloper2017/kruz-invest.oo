@@ -57,7 +57,7 @@ return [
             $theme->asset()->usePath()->add('slick-theme', 'css/slick-theme.css');
             $theme->asset()->usePath()->add('magnific-popup', 'css/magnific-popup.css');
             $theme->asset()->usePath()->add('bootstrap.min', 'css/bootstrap.min.css');
-            $theme->asset()->usePath()->add('bvi.min', 'css/bvi.min.css');
+            $theme->asset()->usePath()->add('bvi.min', 'css/bvi.css');
             $theme->asset()->usePath()->add('style', 'css/style.css');
             $theme->asset()->container('footer')->add('jquery', '//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js');
             $theme->asset()->container('footer')->usePath()->add('bootstrap.min', 'js/bootstrap.min.js');
@@ -67,7 +67,7 @@ return [
             $theme->asset()->container('footer')->usePath()->add('jquery.easypiechart.min', 'js/jquery.easypiechart.min.js');
             $theme->asset()->container('footer')->usePath()->add('jquery.waypoints.min', 'js/jquery.waypoints.min.js');
             $theme->asset()->container('footer')->usePath()->add('jquery.counterup.min', '/js/jquery.counterup.min.js');
-            $theme->asset()->container('footer')->usePath()->add('bvi.min', 'js/bvi.min.js');
+            $theme->asset()->container('footer')->usePath()->add('bvi.min', 'js/bvi.js');
             $theme->asset()->container('footer')->usePath()->add('script', 'js/script.js');
 
             if (function_exists('shortcode')) {

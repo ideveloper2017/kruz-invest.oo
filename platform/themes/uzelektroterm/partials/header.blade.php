@@ -61,20 +61,6 @@
                  !!}
 
                     </div> <!-- .container -->
-                    <div class="header-icons">
-                        <ul>
-                            <li>
-                                <button title="Search" class="header-searchtrigger"><i class="fa fa-search"></i></button>
-                            </li>
-
-                        </ul>
-                    </div>
-                    <div class="header-searchbox">
-                        <form action="#" class="header-searchform">
-                            <input type="text" placeholder="Enter search keyword..">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>
                 </div> <!-- .collapse navbar-collapse -->
             </nav> <!-- .navbar -->
         </header> <!-- .site-header -->
