@@ -5366,8 +5366,8 @@ hr,
     position: relative;
   }
   .corporex-navbar .navbar-nav > li > a {
-    padding-top: 21px;
-    padding-bottom: 21px;
+    padding-top: 17px;
+    padding-bottom: 17px;
   }
   .corporex-navbar ul.nav li.dropdown:hover > ul.dropdown-menu {
     top: 100%;
