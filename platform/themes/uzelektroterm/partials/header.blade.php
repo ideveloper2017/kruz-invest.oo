@@ -49,7 +49,7 @@
                             @endfor
                         </ul> <!-- .top-bar-menu -->
                         <div class="single-widget widget-search">
-                            <h5 class="widget-title">Search</h5>
+
                             <form action="#" class="widget-search-form">
                                 <input type="text" placeholder="Search...">
                                 <button type="submit"><i class="fa fa-search"></i></button>
