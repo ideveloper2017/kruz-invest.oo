@@ -22,39 +22,6 @@
         <div class="container">
             <div class="row">
                 {!! dynamic_sidebar('footer_sidebar_1') !!}
-                <div class="col-lg-3 col-md-6 recent-post-widget">
-                    <h3 class="widget-title">Recent posts</h3>
-                    <ul class="post-list">
-                        <li class="clearfix">
-                            <div class="image-wrapper"><img class="img-responsive" src="http://via.placeholder.com/60x60" alt="blog post thumbnail"></div>
-                            <div class="content-wrapper">
-                                <h5><a href="#">When the music is over turn off</a></h5>
-                                <p>August 07, 2017</p>
-                            </div> <!-- .content-wrapper -->
-                        </li> <!-- .clearfix -->
-                        <li class="clearfix">
-                            <div class="image-wrapper"><img class="img-responsive" src="http://via.placeholder.com/60x60" alt="blog post thumbnail"></div>
-                            <div class="content-wrapper">
-                                <h5><a href="#">When the music is over turn off the light</a></h5>
-                                <p>August 07, 2017</p>
-                            </div> <!-- .content-wrapper -->
-                        </li> <!-- .clearfix -->
-                    </ul> <!-- .post-list -->
-                </div> <!-- col-lg-3 col-md-6 -->
-                <div class="col-lg-3 col-md-6 newsletter-widget">
-                    <h3 class="widget-title">Subscribe Us</h3>
-                    <form class="subscription-form" id="subscription-form">
-                        <div class="form-group">
-                            <label class="sr-only" for="subscriber-name">Name</label>
-                            <input type="text" name="subscriber-name" id="subscriber-name" class="form-control" placeholder="Your name">
-                        </div> <!-- .form-group -->
-                        <div class="form-group">
-                            <label class="sr-only" for="subscriber-email">Email</label>
-                            <input type="text" name="subscriber-email" id="subscriber-email" class="form-control" placeholder="Your email">
-                        </div> <!-- .form-group -->
-                        <button class="btn btn-main">Submit</button>
-                    </form> <!-- .subscription-form -->
-                </div> <!-- col-lg-3 col-md-6 -->
             </div> <!-- .row -->
         </div> <!-- .container -->
     </div> <!-- .footer-blocks -->
