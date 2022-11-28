@@ -6,15 +6,16 @@
             <li data-target="#corporex-slider" data-slide-to="0" class="active"></li>
             <li data-target="#corporex-slider" data-slide-to="1"></li>
         </ol> <!-- .carousel-indicators -->
-        @foreach($sliders as $slider)
+
         <div class="carousel-inner" role="listbox">
+            @foreach($sliders as $slider)
             <div class="item caption-center active">
                 <img class="slider-bg img-responsive" src="{{ RvMedia::getImageUrl($slider->image, null, false, RvMedia::getDefaultImage()) }}" alt="slider image 01">
 
             </div> <!-- .item -->
-
+            @endforeach
         </div> <!-- .carousel-inner -->
-        @endforeach
+
         <!-- Controls -->
         <a class="left carousel-control" href="#corporex-slider" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
