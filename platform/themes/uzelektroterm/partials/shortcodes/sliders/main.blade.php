@@ -10,17 +10,7 @@
             @foreach($sliders as $slider)
             <div class="item caption-left @if ($loop->first) active @endif">
                 <img class="slider-bg img-responsive" src="{{ RvMedia::getImageUrl($slider->image, null, false, RvMedia::getDefaultImage()) }}" alt="slider image 01">
-                <div class="container">
 
-                    <div class="carousel-caption">
-                        <h1 class="h1-extra"><span>The Corporex</span>The Real Corporate Experience</h1>
-                        <p class="lead">
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur.
-                        </p>
-                        <a class="btn btn-main" href="#">learn more</a>
-                    </div> <!-- .carousel-caption -->
-                </div> <!-- .container -->
             </div> <!-- .item -->
             @endforeach
 
