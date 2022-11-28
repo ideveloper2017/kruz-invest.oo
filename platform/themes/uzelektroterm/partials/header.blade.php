@@ -27,6 +27,15 @@
                         <li><a href="#" class="is_mobile"><i class="fa fa-mobile"></i></a></li>
                         <li><a href="https://uzelektroterm.uz/davlat-ramzlari"><i class="fa fa-flag"></i></a></li>
                         <li><a href="#"><i class="fa fa-sitemap"></i></a></li>
+                        <li>
+                            <div class="single-widget widget-search">
+
+                                <form action="#" class="widget-search-form">
+                                    <input type="text" placeholder="Search...">
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+                        </li>
                     </ul>
 
                 </div> <!-- .container -->
@@ -41,21 +50,15 @@
                         </button>
 
 
-{{--                        <ul class="list-inline pull-right header-social">--}}
-{{--                            @for ($i = 1; $i <= 5; $i++)--}}
-{{--                                @if (theme_option('social_' . $i . '_url') && theme_option('social_' . $i . '_name'))--}}
-{{--                                    <li><a style="background: {{ theme_option('social_' . $i . '_color') }}" href="{{ theme_option('social_' . $i . '_url') }}" target="_blank" title="{{ theme_option('social_' . $i . '_name') }}"><i class="elegant-icon {{ theme_option('social_' . $i . '_icon') }}"></i></a></li>--}}
-{{--                                @endif--}}
-{{--                            @endfor--}}
-{{--                        </ul> <!-- .top-bar-menu -->--}}
+                        <ul class="list-inline pull-right header-social">
+                            @for ($i = 1; $i <= 5; $i++)
+                                @if (theme_option('social_' . $i . '_url') && theme_option('social_' . $i . '_name'))
+                                    <li><a style="background: {{ theme_option('social_' . $i . '_color') }}" href="{{ theme_option('social_' . $i . '_url') }}" target="_blank" title="{{ theme_option('social_' . $i . '_name') }}"><i class="elegant-icon {{ theme_option('social_' . $i . '_icon') }}"></i></a></li>
+                                @endif
+                            @endfor
+                        </ul> <!-- .top-bar-menu -->
                         <a class="navbar-brand" href="#"><img src="img/corporex-logo.png" alt="corporex logo"></a>
-                        <div class="single-widget widget-search">
 
-                            <form action="#" class="widget-search-form">
-                                <input type="text" placeholder="Search...">
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
 
                     </div> <!-- .container -->
                 </div> <!-- .navbar-header -->
