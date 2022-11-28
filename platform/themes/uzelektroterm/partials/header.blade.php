@@ -40,13 +40,14 @@
                             <i class="fa fa-bars"></i>
                         </button>
 
-                        <ul class="list-inline pull-right header-social">
-                            <li class="facebook-link"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li class="twitter-link"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li class="google-plus-link"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li class="linkedin-link"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul> <!-- .top-bar-menu -->
 
+                        <ul class="list-inline pull-right header-social">
+                            @for ($i = 1; $i <= 5; $i++)
+                                @if (theme_option('social_' . $i . '_url') && theme_option('social_' . $i . '_name'))
+                                    <li><a style="background: {{ theme_option('social_' . $i . '_color') }}" href="{{ theme_option('social_' . $i . '_url') }}" target="_blank" title="{{ theme_option('social_' . $i . '_name') }}"><i class="elegant-icon {{ theme_option('social_' . $i . '_icon') }}"></i></a></li>
+                                @endif
+                            @endfor
+                        </ul> <!-- .top-bar-menu -->
                         <a class="navbar-brand" href="#"><img src="img/corporex-logo.png" alt="corporex logo"></a>
                     </div> <!-- .container -->
                 </div> <!-- .navbar-header -->
@@ -60,10 +61,10 @@
                      ])
                  !!}
 
-                    </div> <!-- .container -->
-                </div> <!-- .collapse navbar-collapse -->
-            </nav> <!-- .navbar -->
-        </header> <!-- .site-header -->
+                    </div>
+                </div>
+            </nav>
+        </header>
 
         <header class="site-header" style="display: none">
             <div class="top-bar clearfix">
@@ -79,15 +80,13 @@
                         <li><a href="#"><i class="fa fa-flag"></i></a></li>
                         <li><a href="#"><i class="fa fa-sitemap"></i></a></li>
                     </ul>
-
-
                     <ul class="list-inline pull-right top-bar-menu">
                         @if (is_plugin_active('language'))
                             {!! Theme::partial('language-switcher', ['color' => $color ?? '']) !!}
                         @endif
-                    </ul> <!-- .top-bar-menu -->
-                </div> <!-- .container -->
-            </div> <!-- .top-bar -->
+                    </ul>
+                </div>
+            </div>
             <nav class="navbar corporex-navbar navbar-01">
                 <div class="container">
                     <div class="navbar-header">
@@ -96,7 +95,7 @@
                             <i class="fa fa-bars"></i>
                         </button>
 {{--                        <a class="navbar-brand" href="#"><img src="img/corporex-logo.png" alt="corporex logo"></a>--}}
-                    </div> <!-- .navbar-header -->
+                    </div>
                     <div class="collapse navbar-collapse navbar-items" id="navbar-items">
                         {!!
                          Menu::renderMenuLocation('main-menu', [
@@ -104,132 +103,7 @@
                              'view'    => 'main-menu',
                          ])
                      !!}
-                    </div> <!-- .collapse navbar-collapse -->
-                </div> <!-- .container -->
-            </nav> <!-- .navbar -->
-        </header> <!-- .site-header -->
-
-
-
-        <section class="hero-area" style="display: none">
-            <div id="corporex-slider" class="corporex-slider carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#corporex-slider" data-slide-to="0" class="active"></li>
-                    <li data-target="#corporex-slider" data-slide-to="1"></li>
-                </ol> <!-- .carousel-indicators -->
-
-                <div class="carousel-inner" role="listbox">
-                    <div class="item caption-left active">
-                        <img class="slider-bg img-responsive" src="http://via.placeholder.com/1920x720" alt="slider image 01">
-                        <div class="container">
-
-                            <div class="carousel-caption">
-                                <h1 class="h1-extra"><span>The Corporex</span>The Real Corporate Experience</h1>
-                                <p class="lead">
-                                    Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur.
-                                </p>
-                                <a class="btn btn-main" href="#">learn more</a>
-                            </div> <!-- .carousel-caption -->
-                        </div> <!-- .container -->
-                    </div> <!-- .item -->
-                    <div class="item caption-right">
-                        <img class="slider-bg img-responsive" src="http://via.placeholder.com/1920x720" alt="slider image 02">
-                        <div class="container">
-
-                            <div class="carousel-caption">
-                                <h1 class="h1-extra"><span>corporex Theme</span>Discover the Excellence</h1>
-                                <p class="lead">
-                                    Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur.
-                                </p>
-                                <a class="btn btn-main" href="#">learn more</a>
-                            </div> <!-- .carousel-caption -->
-                        </div> <!-- .container -->
-                    </div> <!-- .item -->
-                </div> <!-- .carousel-inner -->
-
-                <!-- Controls -->
-                <a class="left carousel-control" href="#corporex-slider" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a> <!-- .carousel-control -->
-
-                <a class="right carousel-control" href="#corporex-slider" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a> <!-- .carousel-control -->
-
-            </div> <!-- .carousel -->
-        </section>
-        <section class="blog-section section-block" style="display: none">
-            <div class="container">
-                <div class="title-block">
-                    <h2>Latest News</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore mollit anim id est laborum.
-                    </p>
-                </div> <!-- .title-block -->
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="post-wrapper post-overlay">
-                            <div class="image-wrapper gradient-black">
-                                <img class="img-responsive" src="http://via.placeholder.com/570x408" alt="blog image 01">
-                            </div> <!-- .image-wrapper -->
-                            <div class="post-content">
-                                <ul class="post-meta">
-                                    <li>August 03, 2017</li>
-                                    <li><a href="#">Web Design</a></li>
-                                </ul>
-                                <h3><a href="#">Excepteur sint occaecat cupidatat non proid</a></h3>
-                            </div> <!-- .post-content -->
-                        </div> <!-- .post-wrapper post-overlay -->
-                    </div> <!-- .col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="post-wrapper post-split clearfix">
-                            <div class="image-wrapper">
-                                <img class="img-responsive" src="http://via.placeholder.com/570x408" alt="blog image">
-                            </div> <!-- .image-wrapper -->
-                            <div class="post-content">
-                                <ul class="post-meta">
-                                    <li>August 03, 2017</li>
-                                    <li><a href="#">Web Design</a></li>
-                                </ul>
-                                <h3><a href="#">Aliquam commodo felis ac lacus imper</a></h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt...
-                                </p>
-                                <a class="btn-open" href="#">Read More</a>
-                            </div> <!-- .post-content -->
-                        </div> <!-- .post-wrapper split-post -->
-
-                        <div class="post-wrapper post-split clearfix">
-                            <div class="image-wrapper">
-                                <img class="img-responsive" src="http://via.placeholder.com/570x408" alt="blog image">
-                            </div> <!-- .image-wrapper -->
-                            <div class="post-content">
-                                <ul class="post-meta">
-                                    <li>August 03, 2017</li>
-                                    <li><a href="#">Web Design</a></li>
-                                </ul>
-                                <h3><a href="#">Nam quis odio molestie pulvinar nisl</a></h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt...
-                                </p>
-                                <a class="btn-open" href="#">Read More</a>
-                            </div> <!-- .post-content -->
-                        </div> <!-- .post-wrapper split-post -->
-
-                    </div> <!-- .col-lg-6 -->
-                </div> <!-- .row -->
-                <div class="btn-container">
-                    <a class="btn btn-narrow" href="#">View All</a>
+                    </div>
                 </div>
-
-            </div> <!-- .container -->
-        </section> <!-- .blog-section -->
-
-
+            </nav>
+        </header>
