@@ -892,8 +892,8 @@ ul {
   background: #ff5134;
 }
 .navbar-02 .navbar-nav > li > a {
-  padding-left: 24px;
-  padding-right: 24px;
+    padding-left: 17px;
+    padding-right: 17px;
 }
 .navbar-02 .navbar-nav > li > a:hover {
   background: #e62100;
