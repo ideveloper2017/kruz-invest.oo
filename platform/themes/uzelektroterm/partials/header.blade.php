@@ -28,14 +28,13 @@
                         <li><a href="https://uzelektroterm.uz/davlat-ramzlari"><i class="fa fa-flag"></i></a></li>
                         <li><a href="#"><i class="fa fa-sitemap"></i></a></li>
                         <li>
-                            <div class="widget widget-search">
+
                             <div class="single-widget widget-search">
 
                                 <form action="#" class="widget-search-form">
                                     <input type="text" placeholder="Search...">
                                     <button type="submit"><i class="fa fa-search"></i></button>
                                 </form>
-                            </div>
                             </div>
                         </li>
                     </ul>
