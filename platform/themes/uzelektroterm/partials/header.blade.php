@@ -18,15 +18,17 @@
             <div class="top-bar clearfix">
                 <div class="container">
                     <ul class="list-inline pull-left quick-contact">
-                        <li><a href="#"><i class="fa fa-phone"></i> <span>+88 01679 252595</span></a></li>
-                        <li><a href="#"><i class="fa fa-envelope-o"></i> <span>hello@corporex.com</span></a></li>
+                        <li><a href="tel://{!! theme_option('phone') !!}"><i class="fa fa-phone"></i> <span>{!! theme_option('phone') !!}</span></a></li>
+                        <li><a href="mailto://{!! theme_option('email') !!}"><i class="fa fa-envelope-o"></i> <span>{!! theme_option('email') !!}</span></a></li>
                     </ul> <!-- .quick-contact -->
 
-                    <ul class="list-inline pull-right top-bar-menu">
-                        <li><a href="#">Welcome</a></li>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Sitemap</a></li>
-                    </ul> <!-- .top-bar-menu -->
+                    <ul class="list-inline pull-right top-bar-social">
+                        <li><a href="#" class="bvi-open"><i class="fa fa-eye"></i></a></li>
+                        <li><a href="#"><i class="fa fa-mobile"></i></a></li>
+                        <li><a href="#"><i class="fa fa-flag"></i></a></li>
+                        <li><a href="#"><i class="fa fa-sitemap"></i></a></li>
+                    </ul>
+
                 </div> <!-- .container -->
             </div> <!-- .top-bar -->
             <nav class="navbar corporex-navbar navbar-02">
