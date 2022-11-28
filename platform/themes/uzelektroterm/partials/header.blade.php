@@ -11,7 +11,7 @@
         <!-- CSS Library-->
         {!! Theme::header() !!}
     </head>
-    <body @if (BaseHelper::siteLanguageDirection() == 'rtl') dir="rtl" @endif class="home-01">
+    <body @if (BaseHelper::siteLanguageDirection() == 'rtl') dir="rtl" @endif class="home-01 home-header-2">
         {!! apply_filters(THEME_FRONT_BODY, null) !!}
         <header class="site-header">
             <div class="top-bar clearfix">
