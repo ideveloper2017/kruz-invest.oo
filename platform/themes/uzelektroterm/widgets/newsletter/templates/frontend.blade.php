@@ -14,10 +14,6 @@
                 <label class="sr-only" for="subscriber-name">Name</label>
                 <input type="text" name="email" id="email" class="form-control" placeholder="{{ __('Enter your email') }}">
             </div> <!-- .form-group -->
-            <div class="form-group">
-                <label class="sr-only" for="subscriber-email">Email</label>
-                <input type="text" name="subscriber-email" id="subscriber-email" class="form-control" placeholder="Your email">
-            </div> <!-- .form-group -->
             <button class="btn btn-main">{{ __('Subscribe') }}</button>
 
         </form>
