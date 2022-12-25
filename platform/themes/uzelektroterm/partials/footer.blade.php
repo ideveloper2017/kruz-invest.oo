@@ -34,7 +34,7 @@
                 <div class="col-md-6">
                     <p>{!! clean(theme_option('copyright')) !!}</p>
                 </div> <!-- .col-md-6 -->
-                <div class="col-md-6">
+                <div class="col-md-6" style="display: none">
                     <ul class="bottom-links">
                         <li><a href="#">Terms &amp; Condition</a></li>
                         <li><a href="#">Privacy Policy</a></li>
