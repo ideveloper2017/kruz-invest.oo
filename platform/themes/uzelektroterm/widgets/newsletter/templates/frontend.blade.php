@@ -10,8 +10,16 @@
                     {!! Captcha::display() !!}
                 </div>
             @endif
-            <input id="email" type="email" name="email" placeholder="{{ __('Enter your email') }}">
-            <button id="mc-submit" type="submit" class="tm-button">{{ __('Subscribe') }}<b></b></button>
+            <div class="form-group">
+                <label class="sr-only" for="subscriber-name">Name</label>
+                <input type="text" name="email" id="email" class="form-control" placeholder="{{ __('Enter your email') }}">
+            </div> <!-- .form-group -->
+            <div class="form-group">
+                <label class="sr-only" for="subscriber-email">Email</label>
+                <input type="text" name="subscriber-email" id="subscriber-email" class="form-control" placeholder="Your email">
+            </div> <!-- .form-group -->
+            <button class="btn btn-main">{{ __('Subscribe') }}</button>
+
         </form>
         <!-- Mailchimp Alerts -->
         <div class="tm-mailchimp-alerts">
