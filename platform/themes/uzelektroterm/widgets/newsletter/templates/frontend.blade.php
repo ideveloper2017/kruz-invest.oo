@@ -1,7 +1,7 @@
 <div class="col-lg-3 col-md-6 col-12">
     <!-- Single Widget (Widget Newsletter) -->
     <div class="single-widget widget-newsletter">
-        <h5 class="widget-title">{{ $config['name'] }}</h5>
+{{--        <h5 class="widget-title">{{ $config['name'] }}</h5>--}}
         <p>{{ __('Subscribe to our newsletter and get our newest updates right on your inbox.') }}</p>
         <form id="tm-mailchimp-form" class="widget-newsletter-form" action="{{ route('public.newsletter.subscribe') }}" method="post">
             @csrf
